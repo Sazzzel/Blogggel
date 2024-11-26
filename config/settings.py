@@ -21,6 +21,7 @@ else:
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,10 +33,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['8000-sazzzel-blogggel-223k64jkm88.ws.codeinstitute-ide.net', 'blogggel-83d062373319.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-sazzzel-blogggel-223k64jkm88.ws.codeinstitute-ide.net', 
+    'blogggel-83d062373319.herokuapp.com'
+]
 
-CSRD_TRUSTED_ORIGINS= ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com"
+]
 
 # Application definition
 
@@ -80,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
