@@ -35,7 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-sazzzel-blogggel-223k64jkm88.ws.codeinstitute-ide.net', 
-    'https://*.herokuapp.com'
+    'hblogggel-83d062373319.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
