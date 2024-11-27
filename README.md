@@ -62,12 +62,12 @@
   - [Django Project Setup](#django-project-setup)
     - [Install Django](#install-django)
     - [Creating An App](#creating-an-app)
+    - [Prerequisites Before Deploying to Heroku](#prerequisites-before-deploying-to-heroku)
   - [Database Setup (PostgreSQL)](#database-setup-postgresql)
-  - [Steps for Deploying the Site to Heroku](#steps-for-deploying-the-site-to-heroku)
+  - [Deploying to Heroku](#deploying-to-heroku)
   - [Configuring Environment Variables](#configuring-environment-variables)
   - [Clone the Project](#clone-the-project)
   - [Fork the Project](#fork-the-project)
-  
 - [Technologies & Languages Used](#Technologies-&-Languages-Used)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
@@ -986,13 +986,15 @@ ALLOWED_HOSTS = ['8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com']
 ```
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 ```
+---
+
 ### Creating an app
 
 8. Create a new Django app. Replace app_name with the desired app name:
 ```
 python3 manage.py startapp app_name
 ```
-9. Add App to INSTALLED_APPS
+**Add App to INSTALLED_APPS**
 
 - Open your settings.py file and add the app name to the INSTALLED_APPS list:
 ```
@@ -1003,27 +1005,75 @@ INSTALLED_APPS = [
 ```
 - Save the file after making the changes.
 
+---
 
+### Prerequisites Before Deploying to Heroku
 
+9. Install Gunicorn and Freeze Requirements
+- First install Gunicorn, a web server for running Python applications. 
+```
+pip3 install gunicorn~=20.1
+```
+- Once this is complete update your requirements.txt file:
+```
+pip3 freeze --local > requirements.txt
+```
 
+10. Create a Procfile
+- Create a new file named Procfile in the root directory of your project. 
+  - **Note: This file has no file extension, and the P must be capitalized.**
 
+- Add the following line to your Procfile to define the application process:
+  - Make sure to change **proj_name.wsgi** to the project name you set in step 3
+```
+web: gunicorn proj_name.wsgi
+```
+11. Add Deployed App to ALLOWED_HOSTS
+- In settings.py, add your Heroku app URL (or the deployed website URL) to the ALLOWED_HOSTS list. Do not include https:// or a trailing /. For example:
+```
+ALLOWED_HOSTS = ['yourprojecturl-7fbns8df.herokuapp.com']
+```
 [Back to Table of Contents](#table-of-contents)
+
+---
 
 ### Database Setup (PostgreSQL)
 - The app uses **PostgreSQL** hosted **Code Institute** 
-- A link is provided to create a database by Code Institute.
+- A link is provided to create a database using the CI Database Maker.
 - Enter your email address and click create database.
-- Check email for your database_url and a link to you database information.
-
-### Steps for Deploying the Site to Heroku
-
-1. **Create a Heroku Account**: Register or log in to Heroku.
-2. **Set Up Git and Heroku CLI**: Make sure Git and Heroku CLI are installed.
-3. **Initialize Git Repository**: Commit changes and create a new Git repository if needed.
-4. **Create Heroku App**: Use `heroku create` to create a new Heroku app.
-5. **Push Code to Heroku**: Deploy the code using `git push heroku main`.
+- Check your emails for your database_url and a link to you database information.
 
 [Back to Table of Contents](#table-of-contents)
+
+---
+
+### Deploying to Heroku
+
+1. Navigate to Your Heroku Dashboard
+   - Log in to Heroku or create a new account, then navigate to the [Heroku Dashboard](https://heroku.com/).
+
+2. Create a New Heroku App
+   - Click Create New App.
+   - Choose a unique app name.
+   - Select a region close to your location.
+
+3. Add Config Var in App Settings
+   - Go to the Settings tab of your app.
+   - Scroll down to Config Vars and click Reveal Config Vars.
+
+   - Add a new key-value pair:
+```
+Key: DISABLE_COLLECTSTATIC
+
+Value: 1
+```
+4. Connect to Repository
+   - In your Heroku app, navigate to the Deploy tab.
+   - Click GitHub then search for your repository and select it.
+
+5. Check for Add-ons
+   - Navigate to the Resources tab.
+   - Delete any Postgres DB add-ons (if they are not required.)
 
 ---
 ### Configuring Environment Variables
