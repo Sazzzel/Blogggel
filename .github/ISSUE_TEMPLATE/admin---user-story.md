@@ -11,10 +11,10 @@ As a **role**
 I can **capability**
 so that **received benefit**.
 
-**Acceptance Criteria** 
+### Acceptance Criteria
 
 - Acceptance Criteria 1
 
-**Tasks**
+### Tasks
 
-[ ] Tasks 1
+- [ ] Tasks 1
