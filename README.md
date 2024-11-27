@@ -16,7 +16,7 @@ Choosing this as my capstone project felt natural because it’s not just a port
 
 
 # User Stories
-
+![User Stories](docs/images/usimage.png)
 ## User Stories - Table of Contents
 - [Visitor/User User Stories](#visitoruser-user-stories)
   - [User Story 1: User Registration](#user-story-1-user-registration)
