@@ -1,6 +1,84 @@
 
-# Darks Portfolio and Developer Blog Website 
-# Why This Project?
+# Blogggel Portfolio and Developer Blog Website 
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Overview of the Project Purpose and Functionality](#overview-of-the-project-purpose-and-functionality)
+- [User Experience (UX) Design](#user-experience-ux-design)
+  - [Design Goals and Approaches](#design-goals-and-approaches)
+  - [Typography and Fonts Used](#typography-and-fonts-used)
+  - [Colour Palette](#colour-palette)
+- [Wireframes](#wireframes)
+  - [Home Page Wireframe](#home-page-wireframe)
+  - [Post Detail Page Wireframe](#post-detail-page-wireframe)
+  - [About Page Wireframe](#about-page-wireframe)
+  - [Biography Page Wireframe](#biography-page-wireframe)
+- [User Stories](#user-stories)
+  - [Visitor/User User Stories](#visitoruser-user-stories)
+    - [User Story 1: User Registration](#user-story-1-user-registration)
+    - [User Story 2: User Login](#user-story-2-user-login)
+    - [User Story 3: Search Blogs by Programming Language](#user-story-3-search-blogs-by-programming-language)
+    - [User Story 4: View Blog Posts](#user-story-4-view-blog-posts)
+    - [User Story 5: Comment on Blog Posts](#user-story-5-comment-on-blog-posts)
+    - [User Story 6: Edit Personal Profile](#user-story-6-edit-personal-profile)
+    - [User Story 7: Like Blog Posts](#user-story-7-like-blog-posts)
+    - [User Story 8: Bookmark Blog Posts](#user-story-8-bookmark-blog-posts)
+    - [User Story 9: Receive Notifications](#user-story-9-receive-notifications)
+    - [User Story 10: Responsive Design](#user-story-10-responsive-design)
+  - [Admin User Stories](#admin-user-stories)
+    - [Admin User Story 1: Create Blog Posts](#admin-user-story-1-create-blog-posts)
+    - [Admin User Story 2: Read Blog Posts](#admin-user-story-2-read-blog-posts)
+    - [Admin User Story 3: Update Blog Posts](#admin-user-story-3-update-blog-posts)
+    - [Admin User Story 4: Delete Blog Posts](#admin-user-story-4-delete-blog-posts)
+    - [Admin User Story 5: Moderate Comments](#admin-user-story-5-moderate-comments)
+    - [Admin User Story 6: Manage Users](#admin-user-story-6-manage-users)
+    - [Admin User Story 7: Review Reported Content](#admin-user-story-7-review-reported-content)
+    - [Admin User Story 8: Manage Tags and Categories](#admin-user-story-8-manage-tags-and-categories)
+    - [Admin User Story 9: View Site Analytics](#admin-user-story-9-view-site-analytics)
+    - [Admin User Story 10: Configure Site Settings](#admin-user-story-10-configure-site-settings)
+    - [Admin User Story 11: Add Article via API Endpoint](#admin-user-story-11-add-article-via-api-endpoint)
+    - [Admin User Story 12: Update GitHub Repositories and Certificates](#admin-user-story-12-update-github-repositories-and-certificates)
+    - [Admin User Story 13: Discord Bot Integration for Blog Posts](#admin-user-story-13-discord-bot-integration-for-blog-posts)
+- [Features](#features)
+  - [Home Page](#home-page)
+  - [About Page](#about-page)
+  - [Blog Page](#blog-page)
+  - [Navigation Bar](#navigation-bar)
+  - [Footer](#footer)
+  - [Sign-Up Feature](#sign-up-feature)
+  - [Sign-In Feature](#sign-in-feature)
+  - [Sign-Out Feature](#sign-out-feature)
+  - [Admin Features](#admin-features)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+  - [Data Structure and Relationships](#data-structure-and-relationships)
+- [Testing](#testing)
+  - [Manual Testing](#manual-testing)
+  - [Responsive Testing](#responsive-testing)
+  - [Validator Testing](#validator-testing)
+  - [Lighthouse Testing](#lighthouse-testing)
+- [Deployment](#deployment)
+  - [Steps for Deploying the Site to Heroku](#steps-for-deploying-the-site-to-heroku)
+  - [Configuring Environment Variables](#configuring-environment-variables)
+  - [Database Setup (PostgreSQL on ElephantSQL)](#database-setup-postgresql-on-elephantsql)
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Features](#features-1)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+- [Credits](#credits)
+  - [Project Inspiration and Sources](#project-inspiration-and-sources)
+  - [Content Creation Credits](#content-creation-credits)
+  - [Media Credits](#media-credits)
+- [No Contribution](#no-contribution)
+
+![Description Header](docs/images/DescriptionHeader.png)
+
+# Introduction
 After spending a long time as a homemaker raising my children, I’ve decided to turn my long-time passion for programming into a career. This project represents a significant step in that journey—a way to combine the skills I’ve honed as a self-taught programmer with my dedication to lifelong learning.
 
 Creating a full-stack development blog that integrates my GitHub repositories and a collection of certifications is more than just a technical challenge; it’s a personal statement. It’s a way to showcase my growth as a developer while reflecting my unique perspective and experiences. This project allows me to bring together modern backend development with Django, API integrations, and a dynamic, user-friendly frontend to build something practical and meaningful.
@@ -10,13 +88,49 @@ Choosing this as my capstone project felt natural because it’s not just a port
 - [Visit Site](https://blogggel-83d062373319.herokuapp.com/)
 - [Find me on LinkedIN](https://www.linkedin.com/feed/)
 
-## Table of Contents
-- [User Stories - Table of Contents](#User-Stories---Table-of-Contents)
-  
+## User Experience (UX) Design
+![UXHeader](docs/images/UXHeader.png)
 
+### Design Goals and Approaches
+
+- Provide an intuitive and easy-to-navigate user interface.
+- Maintain a professional, developer-focused aesthetic to appeal to potential employers and collaborators.
+
+### Typography and Fonts Used
+
+- The primary fonts used are **Roboto** for general text and **Lato** for headings, ensuring readability and a modern look.
+
+### Colour Palette
+
+- The colour palette consists of:
+  - **Primary:** #0D6EFD (Blue)
+  - **Secondary:** #6C757D (Gray)
+  - **Accent:** #FFFFFF (White)
+
+[Back to Table of Contents](#table-of-contents)
+
+## Wireframes
+![UX2Break](docs/images/UX2Break.png)
+
+Wireframes were created to guide the layout of each key page of the website:
+
+### Home Page Wireframe
+- A welcoming section showcasing the portfolio and latest blog posts.
+
+### Post Detail Page Wireframe
+- Includes blog content, author details, comments, and related posts.
+
+### About Page Wireframe
+- Provides an overview of my background, skills, and career objectives.
+
+### Biography Page Wireframe
+- A more detailed look into my journey as a developer, highlighting my projects, skills, and certifications.
+
+[Back to Table of Contents](#table-of-contents)
 
 # User Stories
-![User Stories](docs/images/usimage.png)
+![User Stories](docs/images/ContentListUserStoriesBanner.png)
+
 ## User Stories - Table of Contents
 - [Visitor/User User Stories](#visitoruser-user-stories)
   - [User Story 1: User Registration](#user-story-1-user-registration)
@@ -44,6 +158,8 @@ Choosing this as my capstone project felt natural because it’s not just a port
 ---
 
 ## Visitor/User User Stories
+
+![Visiter User Stories](docs/images/VisitorUserStoriesBanner.webp)
 
 ### User Story 1: User Registration
 
@@ -375,6 +491,8 @@ Choosing this as my capstone project felt natural because it’s not just a port
 ---
 
 ## Admin User Stories
+
+![Admin User Stories](docs/images/AdminUserStories.png)
 
 ### Admin User Story 1: Create Blog Posts
 
@@ -751,3 +869,239 @@ By following this structured approach, you'll be able to efficiently develop you
 
 [Back to Table of Contents](#table-of-contents)
 
+## Features
+
+### Home Page
+- Displays a list of recent blog posts and highlights of portfolio projects.
+
+### About Page
+- Provides insight into my background, interests, and motivations.
+
+### Blog Page
+- Users can view all blog posts, search by programming languages, and see featured articles.
+
+### Navigation Bar
+- Available throughout the site with links to Home, Blog, About, and Contact pages.
+
+### Footer
+- Contains links to social media, quick navigation, and contact information.
+
+### Sign-Up Feature
+- Visitors can create an account to engage with content and personalize their experience.
+
+### Sign-In Feature
+- Registered users can log in to access member-only content and features.
+
+### Sign-Out Feature
+- Users can sign out, with their session safely terminated.
+
+### Admin Features
+- Admins can create, edit, delete posts, manage users, and moderate content.
+
+[Back to Table of Contents](#table-of-contents)
+
+## Entity Relationship Diagram
+
+### Data Structure and Relationships
+- The database is designed using PostgreSQL, with tables for Users, Blog Posts, Comments, Likes, Bookmarks, and Notifications. The Entity Relationship Diagram (ERD) shows the connections between these tables to ensure data integrity and support the features of the site.
+
+[Back to Table of Contents](#table-of-contents)
+
+## Testing
+
+### Manual Testing
+- Tested across various browsers, including **Chrome**, **Firefox**, **Edge**, and **Safari**.
+
+### Responsive Testing
+- Ensured the website is functional and visually appealing across devices such as desktops, tablets, and mobile phones.
+
+### Validator Testing
+- HTML, CSS, JavaScript, and Python code were validated using tools such as **W3C Validator**, **JSHint**, and **PEP8**.
+
+### Lighthouse Testing
+- **Google Lighthouse** was used to audit performance, accessibility, and SEO.
+
+[Back to Table of Contents](#table-of-contents)
+
+## Deployment
+
+### Steps for Deploying the Site to Heroku
+
+1. **Create a Heroku Account**: Register or log in to Heroku.
+2. **Set Up Git and Heroku CLI**: Make sure Git and Heroku CLI are installed.
+3. **Initialize Git Repository**: Commit changes and create a new Git repository if needed.
+4. **Create Heroku App**: Use `heroku create` to create a new Heroku app.
+5. **Push Code to Heroku**: Deploy the code using `git push heroku main`.
+
+### Configuring Environment Variables
+- Set environment variables such as **DATABASE_URL**, **SECRET_KEY**, and **DEBUG** mode within Heroku for secure data handling.
+
+### Database Setup (PostgreSQL on ElephantSQL)
+- The app uses **PostgreSQL** hosted on **ElephantSQL** for production, with necessary setup scripts provided during deployment.
+
+[Back to Table of Contents](#table-of-contents)
+
+# Installation
+
+### Prerequisites
+
+- Python 3.x
+- Django 3.x or higher
+- Git
+
+### Steps
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+   cd YOUR_REPOSITORY
+   ```
+
+2. **Create a virtual environment:**
+
+   ```bash
+   python3 -m venv env
+   source env/bin/activate
+   ```
+
+3. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Apply migrations:**
+
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Run the development server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+# Usage
+
+Provide instructions on how to use the application after installation. Include screenshots or GIFs to demonstrate key features if possible.
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+- Python
+- Django
+- PostgreSQL
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- Git 
+- GitHub
+- GitPop
+- Heroku
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+# Features
+
+- User Authentication (Registration, Login, Logout)
+- Blog Post Creation, Editing, Deletion
+- Commenting System
+- Like and Bookmark Functionality
+- Notification System
+- Responsive Design
+- Admin Dashboard for Content Management
+- Integration with GitHub and Credly Badges
+- API Endpoint for Adding Articles
+- GitHub Repository and Certificate Auto-Update
+- Discord Bot Integration for Blog Post Generation
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+# License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+
+# Contact
+
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/sarah-darlington-dev/)
+- **Email:** [your.email@example.com](mailto\:your.email@example.com)
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+
+# Acknowledgements
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [GitHub Guides](https://guides.github.com/)
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+**Next Steps:**
+
+1. **Add User Stories to Project Board:**
+
+   - Create issues for each user story.
+   - Include acceptance criteria and tasks in the issue description.
+
+2. **Assign Tasks to Team Members:**
+
+   - Distribute tasks based on expertise and workload.
+
+3. **Set Milestones and Sprints:**
+
+   - Organize user stories into sprints for iterative development.
+
+4. **Implement Testing Strategies:**
+
+   - Develop test cases based on acceptance criteria.
+   - Use automated testing where possible.
+
+5. **Monitor Progress and Metrics:**
+
+   - Track completion of tasks.
+   - Review test results to ensure quality.
+
+By following this structured approach, you'll be able to efficiently develop your website with clear objectives and measurable outcomes. If you need assistance with any specific tasks or have further questions, feel free to ask!
+
+[User Story - Table of Contents](#user-stories---table-of-contents)
+
+[Back to Table of Contents](#table-of-contents)
+
+## Credits
+
+### Project Inspiration and Sources
+- This project was inspired by my journey as a developer and my desire to create a comprehensive platform to showcase my work and certifications.
+
+### Content Creation Credits
+- Blog posts and portfolio descriptions are original content written by myself, augmented with AI tools where needed.
+
+### Media Credits
+- Icons are sourced from **Font Awesome**, 
+- Images are either created by myself or sourced from royalty-free platforms like **Unsplash** and **Pexels**.
+
+[Back to Table of Contents](#table-of-contents)
+
+
+
+# No Contribution
+
+## This is a Capstone Project for the Code Institute.
+
+Therefore, no contribution is required. Thank you anyway!
+
+[Back to Table of Contents](#table-of-contents)
