@@ -58,13 +58,15 @@
   - [Validator Testing](#validator-testing)
   - [Lighthouse Testing](#lighthouse-testing)
 - [Deployment](#deployment)
-  - [Connecting to GitHub](Connecting-to-GitHub)
-  - [Django Project Setup](Django-Project-Setup)
+  - [Connecting to GitHub](#connecting-to-github)
+  - [Django Project Setup](#django-project-setup)
+    - [Install Django](#install-django)
+    - [Creating An App](#creating-an-app)
   - [Database Setup (PostgreSQL)](#database-setup-postgresql)
   - [Steps for Deploying the Site to Heroku](#steps-for-deploying-the-site-to-heroku)
   - [Configuring Environment Variables](#configuring-environment-variables)
-  - [Clone the Project](#Clone-the-Project)
-  - [Fork the Project](#Fork-the-Project)
+  - [Clone the Project](#clone-the-project)
+  - [Fork the Project](#fork-the-project)
   
 - [Technologies & Languages Used](#Technologies-&-Languages-Used)
 - [Usage](#usage)
@@ -938,9 +940,74 @@ To start this project from scratch, follow these steps to create a new GitHub re
 4. Enter a name for your new repository and click "Create repository from template".
 5. Once the repository is created, click the green "Open " button (if you are using GitPod ) to generate a new workspace.
 
+[Back to Table of Contents](#table-of-contents)
+
 ## Django Project Setup
 
+### Install Django
+1. Run the following command to install Django:
+```
+pip3 install Django~=4.2.1
+```
+2. Create a Requirements File
+- Generate a requirements.txt file that lists your project's dependencies:
+```
+pip3 freeze --local > requirements.txt
+```
+3. Create a New Django Project
+- Create your Django project. Replace proj_name with the desired project name. Don’t forget the . at the end of the command!
+```
+django-admin startproject proj_name .
+```
+4. Apply Pre-Built Django Account Migrations
+- Run the following command to apply Django’s default migrations:
+```
+python3 manage.py migrate
+```
+5. Run the Development Server
+- Start the server to test your project:
+```
+python3 manage.py runserver
+```
+- You will see a yellow error screen. Don’t worry, your server is running properly. The error occurs because Django doesn’t recognize the hostname your project is running on.
 
+6. Configure ALLOWED_HOSTS
+
+- Select and copy the hostname displayed in the error message after "Invalid HTTP_HOST header." For example:
+```
+'8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com'
+```
+- Add the hostname to the ALLOWED_HOSTS list in your settings.py file:
+```
+ALLOWED_HOSTS = ['8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com']
+```
+7. Add CSRF Trusted Origins
+- Immediately below the ALLOWED_HOSTS variable, add the following line to allow your IDE and Heroku to pass CSRF verification:
+```
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
+```
+### Creating an app
+
+8. Create a new Django app. Replace app_name with the desired app name:
+```
+python3 manage.py startapp app_name
+```
+9. Add App to INSTALLED_APPS
+
+- Open your settings.py file and add the app name to the INSTALLED_APPS list:
+```
+INSTALLED_APPS = [
+    ...
+    'app_name',
+]
+```
+- Save the file after making the changes.
+
+
+
+
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Database Setup (PostgreSQL)
 - The app uses **PostgreSQL** hosted **Code Institute** 
@@ -956,8 +1023,13 @@ To start this project from scratch, follow these steps to create a new GitHub re
 4. **Create Heroku App**: Use `heroku create` to create a new Heroku app.
 5. **Push Code to Heroku**: Deploy the code using `git push heroku main`.
 
+[Back to Table of Contents](#table-of-contents)
+
+---
 ### Configuring Environment Variables
 - Set environment variables such as **DATABASE_URL**, **SECRET_KEY**, and **DEBUG** mode within Heroku for secure data handling.
+
+[Back to Table of Contents](#table-of-contents)
 
 ## Clone the Project
 
@@ -1000,6 +1072,8 @@ Ensure the env.py file is listed in your .gitignore file to prevent sensitive in
 
 10. <b>Follow the Remaining Setup Steps:</b>
 Complete the rest of the Django project setup process as detailed in the above instructions before pushing your code to GitHub.
+
+[Back to Table of Contents](#table-of-contents)
 
 ## Fork the Project
 To create a copy of the original repository on your GitHub account, follow these steps:
