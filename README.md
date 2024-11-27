@@ -58,12 +58,15 @@
   - [Validator Testing](#validator-testing)
   - [Lighthouse Testing](#lighthouse-testing)
 - [Deployment](#deployment)
+  - [Connecting to GitHub](Connecting-to-GitHub)
+  - [Django Project Setup](Django-Project-Setup)
+  - [Database Setup (PostgreSQL)](#database-setup-postgresql)
   - [Steps for Deploying the Site to Heroku](#steps-for-deploying-the-site-to-heroku)
   - [Configuring Environment Variables](#configuring-environment-variables)
-  - [Database Setup (PostgreSQL on ElephantSQL)](#database-setup-postgresql-on-elephantsql)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Steps](#steps)
+  - [Clone the Project](#Clone-the-Project)
+  - [Fork the Project](#Fork-the-Project)
+  
+- [Technologies & Languages Used](#Technologies-&-Languages-Used)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Features](#features-1)
@@ -923,7 +926,27 @@ By following this structured approach, you'll be able to efficiently develop you
 
 [Back to Table of Contents](#table-of-contents)
 
-## Deployment
+# Deployment
+
+## Connecting to GitHub
+
+To start this project from scratch, follow these steps to create a new GitHub repository using the Code Institute's Template. This template provides the necessary tools to set up your project:
+
+1. Log in to GitHub or create an account if you don’t already have one.
+2. Go to the CI Full Template linked above.
+3. Click "Use this template" and select "Create a new repository".
+4. Enter a name for your new repository and click "Create repository from template".
+5. Once the repository is created, click the green "Open " button (if you are using GitPod ) to generate a new workspace.
+
+## Django Project Setup
+
+
+
+### Database Setup (PostgreSQL)
+- The app uses **PostgreSQL** hosted **Code Institute** 
+- A link is provided to create a database by Code Institute.
+- Enter your email address and click create database.
+- Check email for your database_url and a link to you database information.
 
 ### Steps for Deploying the Site to Heroku
 
@@ -936,76 +959,77 @@ By following this structured approach, you'll be able to efficiently develop you
 ### Configuring Environment Variables
 - Set environment variables such as **DATABASE_URL**, **SECRET_KEY**, and **DEBUG** mode within Heroku for secure data handling.
 
-### Database Setup (PostgreSQL on ElephantSQL)
-- The app uses **PostgreSQL** hosted on **ElephantSQL** for production, with necessary setup scripts provided during deployment.
+## Clone the Project
 
-[Back to Table of Contents](#table-of-contents)
+To create a local clone of this repository from GitHub, follow these steps:
 
-# Installation
-
-### Prerequisites
-
-- Python 3.x
-- Django 3.x or higher
-- Git
-
-### Steps
-
-1. **Clone the repository:**
-
-   ```bash
+1. <b>Log in to GitHub:</b>
+Ensure you are logged into your GitHub account.
+2. <b>Locate the Repository:</b>
+The Blogggel Repository can be accessed via this [link](https://github.com/Sazzzel/Blogggel)
+3. <b>Copy the Repository URL:</b>
+- Above the list of files in the repository, click the "Code" button.
+- Select your preferred cloning method: HTTPS, SSH, or GitHub CLI.
+- Click the "Copy" button to copy the repository URL to your clipboard.
+4. <b>Open Your Terminal:</b>
+Launch your terminal or Git Bash.
+5. <b>Navigate to Your Desired Directory:</b>
+Change the current working directory to the location where you want to clone the repository.
+6. <b>Clone the Repository:</b>
+- Use the git clone command followed by the copied URL:
+ ```bash
    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
    cd YOUR_REPOSITORY
    ```
-
-2. **Create a virtual environment:**
-
-   ```bash
-   python3 -m venv env
-   source env/bin/activate
-   ```
-
-3. **Install dependencies:**
-
-   ```bash
+7. <b>Install Dependencies:</b>
+Navigate to the project directory and install the required dependencies by running:
+  ```bash
    pip install -r requirements.txt
    ```
+8. <b>Set Up the env.py File:</b>
+- Create an env.py file to store sensitive data such as your Cloudinary API key and PostgreSQL URL.
+- Add the following to your env.py file:
+```
+import os
+os.environ["DATABASE_URL"]="<your_postgresql_url>"
+os.environ["SECRET_KEY"]="<your_secret_key>"
+os.environ["CLOUDINARY_URL"]="<your_cloudinary_api_key>"
+```
+9. <b>Add env.py to .gitignore:</b>
+Ensure the env.py file is listed in your .gitignore file to prevent sensitive information from being pushed to GitHub.
 
-4. **Apply migrations:**
+10. <b>Follow the Remaining Setup Steps:</b>
+Complete the rest of the Django project setup process as detailed in the above instructions before pushing your code to GitHub.
 
-   ```bash
-   python manage.py migrate
-   ```
+## Fork the Project
+To create a copy of the original repository on your GitHub account, follow these steps:
+1. <b>Log in to GitHub:</b>
+Ensure you are logged into your [GitHub](https://github.com/) account.
+2. <b>Locate the Repository:</b>
+Access the repository using this link: [Blogggel Repository](https://github.com/Sazzzel/Blogggel).
+3. <b>Fork the Repository:</b>
+At the top-right of the repository page, above the list of files, click the "Fork" button. This will create a forked copy of the repository in your GitHub account.
+4. <b>Access Your Forked Repository:</b>
+Once the fork is complete, you will have access to a copy of the repository in your GitHub account.
+5. <b>Set Up the Project Locally:</b>
+Follow the Django Project Setup steps provided above if you intend to work on the project locally.
 
-5. **Run the development server:**
-
-   ```bash
-   python manage.py runserver
-   ```
-
----
 [Back to Table of Contents](#table-of-contents)
 
-# Usage
+# Technologies & Languages Used
 
-Provide instructions on how to use the application after installation. Include screenshots or GIFs to demonstrate key features if possible.
-
----
-[Back to Table of Contents](#table-of-contents)
-
-- Python
-- Django
-- PostgreSQL
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- Bootstrap
-- Git 
-- GitHub
-- GitPop
-- Heroku
+- Python
+- GitPod
+- [Git](https://git-scm.com/) used for version control.
+- [Github](https://www.github.com) used for online storage of codebase and Projects tool.
+- [Figma](https://www.figma.com) for project design planning and wireframe creation.
+- [Django](https://www.djangoproject.com/) was used as the Python framework for the site.
+- [Cloudinary](https://cloudinary.com/) was used for cloud media storage of user uploaded images.
+- [Heroku](https://www.heroku.com) was used to host the FreeFido application.
 
----
 [Back to Table of Contents](#table-of-contents)
 
 # Features
