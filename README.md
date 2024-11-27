@@ -935,10 +935,10 @@ By following this structured approach, you'll be able to efficiently develop you
 To start this project from scratch, follow these steps to create a new GitHub repository using the Code Institute's Template. This template provides the necessary tools to set up your project:
 
 1. Log in to GitHub or create an account if you don’t already have one.
-2. Go to the CI Full Template linked above.
-3. Click "Use this template" and select "Create a new repository".
+2. Go to the [CI Full Template](https://github.com/Code-Institute-Org/ci-full-template).
+3. Click the green "Use this template" in the top right and select "Create a new repository".
 4. Enter a name for your new repository and click "Create repository from template".
-5. Once the repository is created, click the green "Open " button (if you are using GitPod ) to generate a new workspace.
+5. Once the repository is created, click the green "Open " button (if you are using GitPod) to generate a new workspace.
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -950,22 +950,22 @@ To start this project from scratch, follow these steps to create a new GitHub re
 pip3 install Django~=4.2.1
 ```
 2. Create a Requirements File
-- Generate a requirements.txt file that lists your project's dependencies:
+   - Generate a requirements.txt file that lists your project's dependencies:
 ```
 pip3 freeze --local > requirements.txt
 ```
 3. Create a New Django Project
-- Create your Django project. Replace proj_name with the desired project name. Don’t forget the . at the end of the command!
+   - Create your Django project. Replace proj_name with the desired project name. Don’t forget the . at the end of the command!
 ```
 django-admin startproject proj_name .
 ```
 4. Apply Pre-Built Django Account Migrations
-- Run the following command to apply Django’s default migrations:
+   - Run the following command to apply Django’s default migrations:
 ```
 python3 manage.py migrate
 ```
 5. Run the Development Server
-- Start the server to test your project:
+   - Start the server to test your project:
 ```
 python3 manage.py runserver
 ```
@@ -973,7 +973,7 @@ python3 manage.py runserver
 
 6. Configure ALLOWED_HOSTS
 
-- Select and copy the hostname displayed in the error message after "Invalid HTTP_HOST header." For example:
+   - Select and copy the hostname displayed in the error message after "Invalid HTTP_HOST header." For example:
 ```
 '8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com'
 ```
@@ -982,21 +982,23 @@ python3 manage.py runserver
 ALLOWED_HOSTS = ['8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com']
 ```
 7. Add CSRF Trusted Origins
-- Immediately below the ALLOWED_HOSTS variable, add the following line to allow your IDE and Heroku to pass CSRF verification:
+   - Immediately below the ALLOWED_HOSTS variable, add the following line to allow your IDE and Heroku to pass CSRF verification:
 ```
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 ```
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### Creating an app
 
-8. Create a new Django app. Replace app_name with the desired app name:
+1. Create a new Django app. Replace app_name with the desired app name:
 ```
 python3 manage.py startapp app_name
 ```
-**Add App to INSTALLED_APPS**
+2. **Add App to INSTALLED_APPS**
 
-- Open your settings.py file and add the app name to the INSTALLED_APPS list:
+   - Open your settings.py file and add the app name to the INSTALLED_APPS list:
 ```
 INSTALLED_APPS = [
     ...
@@ -1005,12 +1007,14 @@ INSTALLED_APPS = [
 ```
 - Save the file after making the changes.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### Prerequisites Before Deploying to Heroku
 
-9. Install Gunicorn and Freeze Requirements
-- First install Gunicorn, a web server for running Python applications. 
+1. Install Gunicorn and Freeze Requirements
+   - First install Gunicorn, a web server for running Python applications. 
 ```
 pip3 install gunicorn~=20.1
 ```
@@ -1019,17 +1023,17 @@ pip3 install gunicorn~=20.1
 pip3 freeze --local > requirements.txt
 ```
 
-10. Create a Procfile
-- Create a new file named Procfile in the root directory of your project. 
-  - **Note: This file has no file extension, and the P must be capitalized.**
+2. Create a Procfile
+   - Create a new file named Procfile in the root directory of your project. 
+   - **Note: This file has no file extension, and the P must be capitalized.**
 
-- Add the following line to your Procfile to define the application process:
-  - Make sure to change **proj_name.wsgi** to the project name you set in step 3
+3. Add the following line to your Procfile to define the application process:
+  - Make sure to change **proj_name.wsgi** to the project name you set above in **step 3**
 ```
 web: gunicorn proj_name.wsgi
 ```
-11. Add Deployed App to ALLOWED_HOSTS
-- In settings.py, add your Heroku app URL (or the deployed website URL) to the ALLOWED_HOSTS list. Do not include https:// or a trailing /. For example:
+4. Add Deployed App to ALLOWED_HOSTS
+   - In settings.py, add your Heroku app URL (or the deployed website URL) to the ALLOWED_HOSTS list. Do not include https:// or a trailing /. For example:
 ```
 ALLOWED_HOSTS = ['yourprojecturl-7fbns8df.herokuapp.com']
 ```
@@ -1085,58 +1089,59 @@ Value: 1
 
 To create a local clone of this repository from GitHub, follow these steps:
 
-1. <b>Log in to GitHub:</b>
-Ensure you are logged into your GitHub account.
-2. <b>Locate the Repository:</b>
-The Blogggel Repository can be accessed via this [link](https://github.com/Sazzzel/Blogggel)
-3. <b>Copy the Repository URL:</b>
-- Above the list of files in the repository, click the "Code" button.
-- Select your preferred cloning method: HTTPS, SSH, or GitHub CLI.
-- Click the "Copy" button to copy the repository URL to your clipboard.
-4. <b>Open Your Terminal:</b>
-Launch your terminal or Git Bash.
-5. <b>Navigate to Your Desired Directory:</b>
-Change the current working directory to the location where you want to clone the repository.
-6. <b>Clone the Repository:</b>
-- Use the git clone command followed by the copied URL:
+1. **Log in to GitHub:**
+   - Ensure you are logged into your GitHub account.
+2. **Locate the Repository:**
+   - The Blogggel Repository can be accessed via this [link](https://github.com/Sazzzel/Blogggel)
+3. **Copy the Repository URL:**
+   - Above the list of files in the repository, click the "Code" button.
+   - Select your preferred cloning method: HTTPS, SSH, or GitHub CLI.
+   - Click the "Copy" button to copy the repository URL to your clipboard.
+4. **Open Your Terminal:**
+   - Launch your terminal or Git Bash.
+5. **Navigate to Your Desired Directory:**
+   - Change the current working directory to the location where you want to clone the repository.
+6. **Clone the Repository:**
+   - Use the git clone command followed by the copied URL:
  ```bash
    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
    cd YOUR_REPOSITORY
    ```
-7. <b>Install Dependencies:</b>
-Navigate to the project directory and install the required dependencies by running:
+7. **Install Dependencies:**
+   - Navigate to the project directory and install the required dependencies by running:
   ```bash
    pip install -r requirements.txt
    ```
-8. <b>Set Up the env.py File:</b>
-- Create an env.py file to store sensitive data such as your Cloudinary API key and PostgreSQL URL.
-- Add the following to your env.py file:
+8. **Set Up the env.py File:**
+   - Create an env.py file to store sensitive data such as your Cloudinary API key and PostgreSQL URL.
+   - Add the following to your env.py file:
 ```
 import os
 os.environ["DATABASE_URL"]="<your_postgresql_url>"
 os.environ["SECRET_KEY"]="<your_secret_key>"
 os.environ["CLOUDINARY_URL"]="<your_cloudinary_api_key>"
 ```
-9. <b>Add env.py to .gitignore:</b>
-Ensure the env.py file is listed in your .gitignore file to prevent sensitive information from being pushed to GitHub.
+9. **Add env.py to .gitignore:**
+   - Ensure the env.py file is listed in your .gitignore file to prevent sensitive information from being pushed to GitHub.
 
-10. <b>Follow the Remaining Setup Steps:</b>
-Complete the rest of the Django project setup process as detailed in the above instructions before pushing your code to GitHub.
+10. **Follow the Remaining Setup Steps:**
+   - Complete the rest of the Django project setup process as detailed in the above instructions before pushing your code to GitHub.
 
 [Back to Table of Contents](#table-of-contents)
 
 ## Fork the Project
 To create a copy of the original repository on your GitHub account, follow these steps:
-1. <b>Log in to GitHub:</b>
-Ensure you are logged into your [GitHub](https://github.com/) account.
-2. <b>Locate the Repository:</b>
-Access the repository using this link: [Blogggel Repository](https://github.com/Sazzzel/Blogggel).
-3. <b>Fork the Repository:</b>
-At the top-right of the repository page, above the list of files, click the "Fork" button. This will create a forked copy of the repository in your GitHub account.
-4. <b>Access Your Forked Repository:</b>
-Once the fork is complete, you will have access to a copy of the repository in your GitHub account.
-5. <b>Set Up the Project Locally:</b>
-Follow the Django Project Setup steps provided above if you intend to work on the project locally.
+
+1. **Log in to GitHub:**
+   - Ensure you are logged into your [GitHub](https://github.com/) account.
+2. **Locate the Repository:**
+   - Access the repository using this link: [Blogggel Repository](https://github.com/Sazzzel/Blogggel).
+3. **Fork the Repository:**
+   - At the top-right of the repository page, above the list of files, click the "Fork" button. This will create a forked copy of the repository in your GitHub account.
+4. **Access Your Forked Repository:**
+   - Once the fork is complete, you will have access to a copy of the repository in your GitHub account.
+5. **Set Up the Project Locally:**
+   - Follow the Django Project Setup steps provided above if you intend to work on the project locally.
 
 [Back to Table of Contents](#table-of-contents)
 
