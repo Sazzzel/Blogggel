@@ -852,11 +852,8 @@ Wireframes were created to guide the layout of each key page of the website:
 
 [Back to Table of Contents](#table-of-contents)
 
----
 
-
-
-# Summary
+## Summary
 
 By separating each operation into individual user stories and including the **User Story**, **Acceptance Criteria**, and **Tasks Involved**, we've created a clear and detailed roadmap for the development of your developer blog website. Each user story focuses on a specific functionality, making it easier to plan, implement, and test.
 
@@ -953,12 +950,58 @@ By following this structured approach, you'll be able to efficiently develop you
 
 To start this project from scratch, follow these steps to create a new GitHub repository using the Code Institute's Template. This template provides the necessary tools to set up your project:
 
-
+1. Log in to GitHub or create an account if you don’t already have one.
+2. Go to the [CI Full Template](https://github.com/Code-Institute-Org/ci-full-template).
+3. Click the green "Use this template" in the top right and select "Create a new repository".
+4. Enter a name for your new repository and click "Create repository from template".
+5. Once the repository is created, click the green "Open " button (if you are using GitPod) to generate a new workspace.
 
 ## Django Project Setup
 
 ### Install Django
 
+1. Run the following command to install Django:
+```
+pip3 install Django~=4.2.1
+```
+2. Create a Requirements File
+   - Generate a requirements.txt file that lists your project's dependencies:
+```
+pip3 freeze --local > requirements.txt
+```
+3. Create a New Django Project
+   - Create your Django project. Replace proj_name with the desired project name. Don’t forget the . at the end of the command!
+```
+django-admin startproject proj_name .
+```
+4. Apply Pre-Built Django Account Migrations
+   - Run the following command to apply Django’s default migrations:
+```
+python3 manage.py migrate
+```
+5. Run the Development Server
+   - Start the server to test your project:
+```
+python3 manage.py runserver
+```
+- You will see a yellow error screen. Don’t worry, your server is running properly. The error occurs because Django doesn’t recognize the hostname your project is running on.
+
+6. Configure ALLOWED_HOSTS
+
+   - Select and copy the hostname displayed in the error message after "Invalid HTTP_HOST header." For example:
+```
+'8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com'
+```
+- Add the hostname to the ALLOWED_HOSTS list in your settings.py file:
+```
+ALLOWED_HOSTS = ['8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com']
+```
+7. Add CSRF Trusted Origins
+   - Immediately below the ALLOWED_HOSTS variable, add the following line to allow your IDE and Heroku to pass CSRF verification:
+```
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
+```
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
