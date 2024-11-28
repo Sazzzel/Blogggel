@@ -113,22 +113,27 @@ Choosing this as my capstone project felt natural because it’s not just a port
 
 ## Wireframes
 
+![UX2Break](docs/images/UX2Break.png)
 
 Wireframes were created to guide the layout of each key page of the website:
 
 
 ### Mobile Wireframes
+
 - These are my mobile wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
+
+![Mobile Wireframes](docs/images/PhoneWire.png)
 
 
 ### Tablet Wireframes
 - These are my tablet wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
 
-
+![Tablet Wireframes](docs/images/TabletWire.png)
 
 ### Desktop Wireframes
 - These are my Desktop wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
 
+![Desktop Wireframes](docs/images/DesktopWire.png)
 
 # User Stories
 
