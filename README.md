@@ -1007,6 +1007,22 @@ CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.
 
 ### Creating an app
 
+1. Create a new Django app. Replace app_name with the desired app name:
+```
+python3 manage.py startapp app_name
+```
+2. **Add App to INSTALLED_APPS**
+
+   - Open your settings.py file and add the app name to the INSTALLED_APPS list:
+```
+INSTALLED_APPS = [
+    ...
+    'app_name',
+]
+```
+- Save the file after making the changes.
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
