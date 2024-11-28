@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = [
     '8000-sazzzel-blogggel-afm7quo28qi.ws.codeinstitute-ide.net', 
-    'blogggel-83d062373319.herokuapp.com'
+    'blogggel-066705e867f8.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
