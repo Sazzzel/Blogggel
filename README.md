@@ -1028,12 +1028,60 @@ INSTALLED_APPS = [
 
 ###  Create Necessary Folders
 
+1. In the IDE file explorer or terminal, create the following three folders in the top-level directory:
+```
+media
 
+static
+
+templates
+```
+2. Install WhiteNoise
+   - Run the following command to install WhiteNoise:
+```
+pip3 install whitenoise~=5.3.0
+```
+3. After installation, freeze your requirements using the freeze command.
+```
+pip3 freeze --local > requirement.txt
+```
+4. Wire Up WhiteNoise in settings.py
+   - Add WhiteNoise to Django's middleware in settings.py. The line should be added directly after the SecurityMiddleware:
+```
+   MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    …,
+]
+```
 
 ### Prerequisites Before Deploying to Heroku
 
+1. Install Gunicorn and Freeze Requirements
+   - First install Gunicorn, a web server for running Python applications. 
+```
+pip3 install gunicorn~=20.1
+```
+- Once this is complete update your requirements.txt file:
+```
+pip3 freeze --local > requirements.txt
+```
 
+2. Create a Procfile
+   - Create a new file named Procfile in the root directory of your project. 
+   - **Note: This file has no file extension, and the P must be capitalized.**
 
+3. Add the following line to your Procfile to define the application process:
+  - Make sure to change **proj_name.wsgi** to the project name you set above in **step 3**
+```
+web: gunicorn proj_name.wsgi
+```
+4. Add Deployed App to ALLOWED_HOSTS
+   - In settings.py, add your Heroku app URL (or the deployed website URL) to the ALLOWED_HOSTS list. Do not include https:// or a trailing /. For example:
+```
+ALLOWED_HOSTS = ['yourprojecturl-7fbns8df.herokuapp.com']
+```
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
