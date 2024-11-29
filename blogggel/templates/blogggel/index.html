@@ -6,6 +6,7 @@
 <!-- index.html content starts here -->
 
 <div class="container-fluid">
+    <img loading="lazy" src="{% static 'images/HeroImage.png' %}" class="img-fluid fade-in" alt="Different colour jigsaw pieces, circles and ribbons sat together and blended into the background. used as the hero image">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
@@ -16,7 +17,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static '#' %}"
+                                <img class="card-img-top" src="{% static 'images/HeroImage.png' %}"
                                     alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}"
