@@ -1198,7 +1198,116 @@ python3 manage.py createsuperuser
 
 ### Cloudinary
 
+1. Install Required Packages
 
+   - Install the following packages by typing the following into the terminal:
+```
+pip3 install dj3-cloudinary-storage~=0.0.6
+```
+- Once complete run the following:
+```
+pip3 install urllib3~=1.26.15
+```
+- After installation, freeze your requirements. 
+```
+pip3 freeze --local > requirements.txt
+```
+2. Log in to your Cloudinary account.
+- Copy your CLOUDINARY_URL (API Environment Variable) from the Cloudinary Dashboard.
+
+3. Add Cloudinary URL to env.py
+   - In your env.py file, add the following line:
+```
+os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+```
+4. Add Cloudinary Libraries to Installed Apps
+   - Update the INSTALLED_APPS section with the following:
+```
+INSTALLED_APPS = [
+    …,
+    'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+    …,
+]
+```
+   - **Note:** The order is important.
+
+5. Setup Static Files
+   - Configure the static files settings as follows:
+```
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+6. Link File to Templates Directory in Heroku
+ - Place the following near the top of your settings.py under the BASE_DIR line:
+```
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+```
+7. Update the TEMPLATES array to include TEMPLATES_DIR:
+```
+TEMPLATES = [
+    {
+        …,
+        'DIRS': [TEMPLATES_DIR],
+        …,
+    },
+]
+```
+
+
+### Deploying to Heroku
+
+1. Navigate to Your Heroku Dashboard
+   - Log in to Heroku or create a new account, then navigate to the [Heroku Dashboard](https://heroku.com/).
+
+2. Create a New Heroku App
+   - Click Create New App.
+   - Choose a unique app name.
+   - Select a region close to your location.
+
+3. Add Config Var in App Settings
+   - Go to the Settings tab of your app.
+   - Scroll down to Config Vars and click Reveal Config Vars.
+
+   - Add a new key-value pair:
+```
+Key: DISABLE_COLLECTSTATIC
+
+Value: 1
+```
+4. Connect to Repository
+   - In your Heroku app, navigate to the Deploy tab.
+   - Click GitHub then search for your repository and select it.
+
+5. Check for Add-ons
+   - Navigate to the Resources tab.
+   - Delete any Postgres DB add-ons (if they are not required.)
+
+6. Add Secret Key to Config Vars
+   - Add a config variable with the following details:
+```
+Key: SECRET_KEY
+
+Value: randomSecretKey
+```
+7. Add a Config Var for DATABASE_URL
+   - Add another config variable with the following details:
+```
+Key: DATABASE_URL
+
+Value: Your PostgreSQL database URL from the previous step.
+```
+8. Add Cloudinary URL to Heroku Config Vars
+   - In Heroku, navigate to the Settings tab and add a Config Var with the following details:
+```
+Key: CLOUDINARY_URL
+
+Value: cloudinary://************************
+```
+
+[Back to Table of Contents](#table-of-contents)
 
 
 ### Deploying to Heroku
