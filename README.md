@@ -1087,6 +1087,13 @@ ALLOWED_HOSTS = ['yourprojecturl-7fbns8df.herokuapp.com']
 
 ### Database Setup (PostgreSQL)
 
+- The website uses **PostgreSQL** hosted **Code Institute** 
+- A link is provided to create a database using the CI Database Maker.
+- Enter your email address and click create database.
+- Check your emails for your database_url and a link to all your database information.
+
+[Back to Table of Contents](#table-of-contents)
+
 
 ---
 
