@@ -1099,6 +1099,99 @@ ALLOWED_HOSTS = ['yourprojecturl-7fbns8df.herokuapp.com']
 
 ### Connecting to your database.
 
+1. Install Database Packages
+
+   - Run the following command to install the necessary database packages:
+```
+pip3 install dj-database-url~=0.5 psycopg
+```
+
+2. After installation, freeze your requirements using the freeze command.
+   - This will update the requirements.txt
+```
+pip3 freeze --local > requirements.txt
+```
+
+3. Create env.py File
+
+   - In the root directory of your project, create a new file named **env.py**.
+
+4. Add env.py to .gitignore
+   - Open your .gitignore file and add the following line:
+```
+env.py
+```
+- **Note:*** If you are using the CI template, this is already included.
+
+5. Import the os Library
+   - At the top of the env.py file, add this line of code:
+```
+import os
+```
+6. Set Environment Variables
+   - In env.py, add the following code:
+```
+os.environ["DATABASE_URL"] = "Paste the PostgreSQL database URL inside these double quotes"
+```
+7. Add a Secret Key
+   - In env.py, add the following line:
+   - I used [Djecrety](https://djecrety.ir/) to make my secret key.
+```
+os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+```
+8. Update settings.py
+   - Import Necessary Modules
+   - Update the top of your settings.py file with the following:
+```
+from pathlib import Path
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+    import env
+```
+- I changed my DEBUG at this point to make sure I never forgot to change it to Fause before deploying. (This is not needed
+```
+If os.path.isfile("env.py"):
+   import env
+   DEBUG = True
+else:
+    DEBUG = False
+```
+9. Replace the Insecure Secret Key
+   - Remove the hardcoded secret key and replace it with:
+```
+SECRET_KEY = os.environ.get('SECRET_KEY')
+```
+10. Comment Out the Old DATABASES Section
+   - Comment out the default SQLite database configuration:
+```
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+```
+11. Add New DATABASES Section
+   - Replace it with the following to link to the DATABASE_URL variable on Heroku:
+```
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+```
+12. Save All Files and Make Migrations
+   - Run the following command:
+```
+python3 manage.py migrate
+```
+13. Creating a Super User
+   - Creating a super user in Django is an important step to gain access to the admin interface with extra privileges.
+   - Run the following command:
+```
+python3 manage.py createsuperuser
+```
+[Back to Table of Contents](#table-of-contents)
 
 
 ---
