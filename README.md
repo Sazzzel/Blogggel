@@ -1377,7 +1377,17 @@ To create a copy of the original repository on your GitHub account, follow these
 
 # Technologies & Languages Used
 
-
+- HTML
+- CSS
+- JavaScript
+- Python
+- GitPod
+- [Git](https://git-scm.com/) used for version control.
+- [Github](https://www.github.com) used for online storage of codebase and Projects tool.
+- [Figma](https://www.figma.com) for project design planning and wireframe creation.
+- [Django](https://www.djangoproject.com/) was used as the Python framework for the site.
+- [Cloudinary](https://cloudinary.com/) was used for cloud media storage of user uploaded images.
+- [Heroku](https://www.heroku.com) was used to host the FreeFido application.
 
 [Back to Table of Contents](#table-of-contents)
 
