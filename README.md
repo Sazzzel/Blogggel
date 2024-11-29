@@ -887,6 +887,8 @@ By following this structured approach, you'll be able to efficiently develop you
 
 [Back to Table of Contents](#table-of-contents)
 
+---
+
 ## Features
 
 ### Home Page
@@ -1375,55 +1377,6 @@ To create a copy of the original repository on your GitHub account, follow these
 
 ---
 
-# Technologies & Languages Used
-
-- HTML
-- CSS
-- JavaScript
-- Python
-- GitPod
-- [Git](https://git-scm.com/) used for version control.
-- [Github](https://www.github.com) used for online storage of codebase and Projects tool.
-- [Figma](https://www.figma.com) for project design planning and wireframe creation.
-- [Django](https://www.djangoproject.com/) was used as the Python framework for the site.
-- [Cloudinary](https://cloudinary.com/) was used for cloud media storage of user uploaded images.
-- [Heroku](https://www.heroku.com) was used to host the FreeFido application.
-
-[Back to Table of Contents](#table-of-contents)
-
-# Features
-
-
-
----
-[Back to Table of Contents](#table-of-contents)
-
-# License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-[Back to Table of Contents](#table-of-contents)
-
-
-# Contact
-
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/sarah-darlington-dev/)
-- **Email:** [your.email@example.com](mailto\:your.email@example.com)
-
----
-[Back to Table of Contents](#table-of-contents)
-
-
-# Acknowledgements
-
-- [Django Documentation](https://docs.djangoproject.com/)
-- [Bootstrap](https://getbootstrap.com/)
-- [GitHub Guides](https://guides.github.com/)
-
----
-[Back to Table of Contents](#table-of-contents)
-
 **Next Steps:**
 
 1. **Add User Stories to Project Board:**
@@ -1454,6 +1407,69 @@ By following this structured approach, you'll be able to efficiently develop you
 [User Story - Table of Contents](#user-stories---table-of-contents)
 
 [Back to Table of Contents](#table-of-contents)
+
+---
+
+# Technologies & Languages Used
+
+- HTML
+- CSS
+- JavaScript
+- Python
+- GitPod
+- [Git](https://git-scm.com/) used for version control.
+- [Github](https://www.github.com) used for online storage of codebase and Projects tool.
+- [Figma](https://www.figma.com) for project design planning and wireframe creation.
+- [Django](https://www.djangoproject.com/) was used as the Python framework for the site.
+- [Cloudinary](https://cloudinary.com/) was used for cloud media storage of user uploaded images.
+- [Heroku](https://www.heroku.com) was used to host the FreeFido application.
+
+[Back to Table of Contents](#table-of-contents)
+
+# Features
+
+- User Authentication (Registration, Login, Logout)
+- Blog Post Creation, Editing, Deletion
+- Commenting System
+- Like and Bookmark Functionality
+- Notification System
+- Responsive Design
+- Admin Dashboard for Content Management
+- Integration with GitHub and Credly Badges
+- API Endpoint for Adding Articles
+- GitHub Repository and Certificate Auto-Update
+- Discord Bot Integration for Blog Post Generation
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+# License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+
+# Contact
+
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/sarah-darlington-dev/)
+- **Email:** [your.email@example.com](mailto\:your.email@example.com)
+
+---
+[Back to Table of Contents](#table-of-contents)
+
+
+# Acknowledgements
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [GitHub Guides](https://guides.github.com/)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
 
 ## Credits
 
