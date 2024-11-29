@@ -1360,8 +1360,20 @@ os.environ["CLOUDINARY_URL"]="<your_cloudinary_api_key>"
 ## Fork the Project
 To create a copy of the original repository on your GitHub account, follow these steps:
 
+1. **Log in to GitHub:**
+   - Ensure you are logged into your [GitHub](https://github.com/) account.
+2. **Locate the Repository:**
+   - Access the repository using this link: [Blogggel Repository](https://github.com/Sazzzel/Blogggel).
+3. **Fork the Repository:**
+   - At the top-right of the repository page, above the list of files, click the "Fork" button. This will create a forked copy of the repository in your GitHub account.
+4. **Access Your Forked Repository:**
+   - Once the fork is complete, you will have access to a copy of the repository in your GitHub account.
+5. **Set Up the Project Locally:**
+   - Follow the Django Project Setup steps provided above if you intend to work on the project locally.
 
 [Back to Table of Contents](#table-of-contents)
+
+---
 
 # Technologies & Languages Used
 
