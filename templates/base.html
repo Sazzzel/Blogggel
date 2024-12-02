@@ -26,18 +26,19 @@
 <body class="d-flex flex-column h-100 main-bg">
     
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <div class="navbar-brand">
-                <img loading="lazy" src="static/images/Icon.png" width="30" height="30"
+                <img loading="lazy" src="{% static 'images/logo.png' %}" width="30" height="30"
             alt="Capital B on a metel button. Used as the Bloggel Logo.">
             <span class="brand-text">Blogggel</span>
-        </div>
+            </div>
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
               aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+        
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -63,7 +64,7 @@
             </div>
         </div>
     </nav>
-    
+    <img loading="lazy" src="{% static 'images/HeroImageTop.webp' %}" width="100%" heigh="50%" class="img-fluid fade-in" alt="Computer screen surounded by circet boards">
     
 
      <!-- displaying Django messages -->
@@ -94,7 +95,7 @@
 
 
 
-
+    <img loading="lazy" src="{% static 'images/HeroImageBottom.webp' %}" width="100%" class="img-fluid" alt="Circet board with components">
        <!-- Footer -->
        <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-black">
@@ -104,7 +105,7 @@
         </p>
        
         <!-- Social -->
-        <p>
+        <p class="d-flex justify-content-around" style="font-size: 20px;">
             <!-- GitHub -->
             <a href="https://github.com/Sazzzel" target="_blank" rel="noopener"
             aria-label="Visit my GitHub profile page (opens in a new tab)"><i class="fa-brands fa-github"></i></a>
