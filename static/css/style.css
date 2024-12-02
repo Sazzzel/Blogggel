@@ -7,14 +7,20 @@ body {
     font-weight: 700;
     color: #4A4A4F;
 }
-.red-o {
-    color: #E84610;
+
+.nav-bg {
+    background-color: #1A1F29;
 }
-.thin {
-    font-weight: 300;
+.brand-text{
+    padding-right: 20px;
+    color: silver;
 }
-.light-bg {
-    background-color: #fff;
+.nav-text{
+    color: silver;
+
+    :hover{
+        color: pink;
+    }
 }
 .dark-bg {
     background-color: #445261;
