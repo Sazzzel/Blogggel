@@ -68,4 +68,4 @@ class Testimonial(models.Model):
         ordering = ['-created_on']  # Newest testimonials first
 
     def __str__(self):
-        return f"{self.name} - {self.job_title if self.job_title else 'Testimonial'}"
+        return f"{self.author} - {self.job_title if self.job_title else 'Testimonial'}"

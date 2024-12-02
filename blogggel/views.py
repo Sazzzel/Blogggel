@@ -2,14 +2,24 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import Post, Comment, Testimonial
 from .forms import CommentForm
 
 # Create your views here.
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1)
-    template_name = "blogggel/index.html"
+
+
+def PostList(request):
+    testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')[:3]
+    post_list = Post.objects.all().order_by('-created_on')  # Adjust as necessary
     paginate_by = 6
+   
+
+    return render(request, 'blogggel/index.html', {
+    'testimonials': testimonials, 
+    'post_list': post_list,
+})
+
+
 
 def post_detail(request, slug):
 

@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/HeroImage.png' %}"
+                                <img class="card-img-top" src="{% static 'images/logo.png' %}"
                                     alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}"
@@ -58,6 +58,40 @@
     </nav>
     {% endif %}
 </div>
+
+
+ <!-- Testimonials Accordion -->
+ <div class="accordion mt-4" id="testimonialAccordion">
+    <!-- Latest Testimonials (3) -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Testimonials - see more
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#testimonialAccordion">
+            <div class="accordion-body">
+                <div class="row">
+                    {% for testimonial in testimonials %}
+                    <div class="col-12 mb-3">
+                        <div class="testimonial-item">
+                            <p><strong>{{ testimonial.author.username }}</strong> - {{ testimonial.job_title }}</p>
+                            <p>"{{ testimonial.text }}"</p>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 
 <!-- index.html content ends here -->
 {% endblock %}
