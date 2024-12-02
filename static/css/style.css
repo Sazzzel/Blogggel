@@ -12,21 +12,40 @@ body {
     background-color: #1A1F29;
 }
 .brand-text{
-    padding-right: 20px;
     color: silver;
 }
-.nav-text{
-    color: silver;
-
-    :hover{
-        color: pink;
-    }
+.nav-link{
+    color: #FF914D !important; /* Soft Orange from the palette */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+.nav-link:hover {
+    color: pink !important; /* Pink color on hover */
+}
+.nav-link:active {
+    color: #3DA6FF; /* Electric Blue for the active link */
+    text-decoration: underline; /* Underline for active link */
+    font-weight: bold; /* Optional, makes it stand out more */
 }
 .dark-bg {
-    background-color: #445261;
+    background-color: #1A1F29;
+}
+.foot-text{
+    color: silver;
+    font-size: 25px;
+}
+.foot-links{
+    color: goldenrod !important;
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+footer p{
+    margin: 0;
 }
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #1A1F29;
+}
+.py-3{
+    padding-bottom: 0;
 }
 .card {
     border: none;
@@ -99,8 +118,7 @@ body {
 }
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
-    color: #fff;
+    color: silver;
 }
 .btn-signup:hover,
 .btn-signup:active {
