@@ -21,11 +21,13 @@ body {
 .nav-link:hover {
     color: pink !important; /* Pink color on hover */
 }
-.nav-link:active {
-    color: #3DA6FF; /* Electric Blue for the active link */
+
+.active {
+    color: #3DA6FF !important; /* Electric Blue for the active link */
     text-decoration: underline; /* Underline for active link */
     font-weight: bold; /* Optional, makes it stand out more */
 }
+
 .dark-bg {
     background-color: #1A1F29;
 }
