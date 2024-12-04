@@ -109,12 +109,12 @@
                 <!-- Label Section -->
                
                 <!-- Content Section -->
-                <div class="content">
+                <div class="content" id="testimonial{{ testimonial.id }}">
                     <p class="mb-1"><b>User: </b><strong>{{ testimonial.author.username }}</strong></p>
                     {% if testimonial.job_title %}
-                    <p class="mb-1 text-muted"><b>Job Title: </b>{{ testimonial.job_title }}</p>
+                    <p class="mb-1 text-muted"><b>Job Title: </b></p> <p id="testimonial-job{{ testimonial.id }}"> {{ testimonial.job_title }}</p>
                     {% endif %}
-                    <p><b>Testimonial: </b>"{{ testimonial.text }}"</p>
+                    <p><b>Testimonial: </b></p> "<p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>"
                 </div>
                 <!-- Edit Delete buttons -->
                 {% if not testimonial.approved and testimonial.author == user %}
