@@ -3,22 +3,47 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Testimonial
-from .forms import CommentForm
+from .forms import CommentForm, TestimonialForm
 
 # Create your views here.
 
 
 def PostList(request):
-    testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')[:3]
+    testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')
+    queryset = Post.objects.filter(status=1)
     post_list = Post.objects.all().order_by('-created_on')  # Adjust as necessary
     paginate_by = 6
    
 
     return render(request, 'blogggel/index.html', {
-    'testimonials': testimonials, 
     'post_list': post_list,
+    'testimonials': testimonials, 
+    'testimonial_form' : TestimonialForm(),
 })
 
+def add_testimonial(request):
+    if request.method == "POST":
+        print("Received a POST request")
+        testimonial_form = TestimonialForm(data=request.POST)
+        if testimonial_form.is_valid():
+            testimonial = testimonial_form.save(commit=False)
+            testimonial.author = request.user
+            testimonial.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Testimonial submitted and awaiting approval.'
+            )
+    
+    testimonial_form = TestimonialForm()
+    print("About to render template")
+
+    return render(
+        request,
+        "blogggel/index.html",
+        {
+            "testimonial_form": testimonial_form
+        },
+    )
 
 
 def post_detail(request, slug):

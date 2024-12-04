@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -11,7 +12,7 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -60,9 +61,83 @@
 </div>
 
 
- <!-- Testimonials Accordion -->
- <div class="accordion mt-4" id="testimonialAccordion">
-    <!-- Latest Testimonials (3) -->
+<!-- Display the latest 3 testimonials -->
+{% if testimonials|length > 0 %}
+<div class="d-flex align-items-center justify-content-between">
+    <!-- Text Centered -->
+    <h3 class="mx-auto"><u><strong>Testimonials</strong></u></h3>
+    
+    <!-- Add Testimonial Button -->
+    <button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#addTestimonialModal">
+        Add Testimonial
+    </button>
+</div>
+
+<!-- Add Testimonial Modal -->
+<div class="modal fade" id="addTestimonialModal" aria-labelledby="addTestimonialModalLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTestimonialModalLabel">Add a Testimonial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    {% if user.is_authenticated %}
+                    <p>Posting as: {{ user.username }}</p>
+                    <form id="testimonial_form" method="post" action="{% url 'add_testimonial' %}"
+                      style="margin-top: 1.3em;">
+                      {{ testimonial_form | crispy }}
+                      {% csrf_token %}
+                      <button id="submitButton" type="submit"
+                        class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% else %}
+                    <p>Log in to write a testimonial</p>
+                    {% endif %}
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+
+    <!-- View Testimonials -->
+    <div class="row">
+        {% for testimonial in testimonials|slice:":3" %}
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="testimonial-item d-flex align-items-start border rounded p-3">
+                <!-- Label Section -->
+               
+                <!-- Content Section -->
+                <div class="content">
+                    <p class="mb-1"><b>User: </b><strong>{{ testimonial.author.username }}</strong></p>
+                    {% if testimonial.job_title %}
+                    <p class="mb-1 text-muted"><b>Job Title: </b>{{ testimonial.job_title }}</p>
+                    {% endif %}
+                    <p><b>Testimonial: </b>"{{ testimonial.text }}"</p>
+                </div>
+                <!-- Edit Delete buttons -->
+                {% if not testimonial.approved and testimonial.author == user %}
+                <p class="approval">
+                    This testimonial is awaiting approval
+                </p>
+                {% endif %}
+                {% if user.is_authenticated and testimonial.author == user %}
+                <button class="btn btn-delete"
+                testimonial_id="{{ testimonial.id }}">Delete</button>
+                <button class="btn btn-edit"
+                testimonial_id="{{ testimonial.id }}">Edit</button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Testimonials Accordion -->
+{% if testimonials|length > 3 %}
+<div class="accordion mt-4" id="testimonialAccordion">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -74,22 +149,27 @@
             data-bs-parent="#testimonialAccordion">
             <div class="accordion-body">
                 <div class="row">
-                    {% for testimonial in testimonials %}
-                    <div class="col-12 mb-3">
-                        <div class="testimonial-item">
-                            <p><strong>{{ testimonial.author.username }}</strong> - {{ testimonial.job_title }}</p>
-                            <p>"{{ testimonial.text }}"</p>
+                    {% for testimonial in testimonials|slice:"3:" %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="testimonial-item d-flex align-items-start border rounded p-3">
+                            <!-- Content Section -->
+                            <div class="content">
+                                <p class="mb-1"><b>User: </b><strong>{{ testimonial.author.username }}</strong></p>
+                                {% if testimonial.job_title %}
+                                <p class="mb-1 text-muted"><b>Job Title: </b>{{ testimonial.job_title }}</p>
+                                {% endif %}
+                                <p><b>Testimonial: </b>"{{ testimonial.text }}"</p>
+                            </div>
                         </div>
                     </div>
-                   
-                </div>
-                <div class="row">
-                    
                     {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+</div>
+{% endif %}
+
 
     
 
