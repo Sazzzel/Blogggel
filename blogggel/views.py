@@ -45,6 +45,22 @@ def add_testimonial(request):
         },
     )
 
+def testimonial_delete(request, testimonial_id):
+    """
+    view to delete testimonial
+    """
+    testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
+
+    if testimonial.author == request.user:
+        testimonial.delete()
+        messages.add_message(request, messages.SUCCESS, 'Testimonial deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own testimonial!')
+
+    return HttpResponseRedirect(reverse('home'))
+
+
+
 
 def post_detail(request, slug):
 
