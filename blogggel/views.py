@@ -8,20 +8,41 @@ from .forms import CommentForm, TestimonialForm
 # Create your views here.
 
 
-def PostList(request):
-    testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')
-    queryset = Post.objects.filter(status=1)
-    post_list = Post.objects.all().order_by('-created_on')  # Adjust as necessary
-    paginate_by = 6
+# def PostList(request):
+#     testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')
+#     queryset = Post.objects.filter(status=1)
+#     post_list = Post.objects.all().order_by('-created_on')  # Adjust as necessary
+#     paginate_by = 6
    
 
+#     return render(request, 'blogggel/index.html', {
+#     'post_list': post_list,
+#     'testimonials': testimonials, 
+#     'testimonial_form' : TestimonialForm(),
+# })
+
+def PostList(request):
+    if request.user.is_authenticated:
+        # approved testimonials and unapproved ones authored by the user
+        testimonials = Testimonial.objects.filter(
+            approved=True
+        ) | Testimonial.objects.filter(
+            author=request.user, approved=False
+        )
+    else:
+        #only approved testimonials for unauthenticated users
+        testimonials = Testimonial.objects.filter(approved=True)
+
+    post_list = Post.objects.all().order_by('-created_on')
+
     return render(request, 'blogggel/index.html', {
-    'post_list': post_list,
-    'testimonials': testimonials, 
-    'testimonial_form' : TestimonialForm(),
-})
+        'post_list': post_list,
+        'testimonials': testimonials,
+        'testimonial_form': TestimonialForm(),
+    })
 
 def add_testimonial(request):
+
     if request.method == "POST":
         print("Received a POST request")
         testimonial_form = TestimonialForm(data=request.POST)
@@ -33,6 +54,7 @@ def add_testimonial(request):
                 request, messages.SUCCESS,
                 'Testimonial submitted and awaiting approval.'
             )
+        return HttpResponseRedirect(reverse('home'))
     
     testimonial_form = TestimonialForm()
     print("About to render template")
@@ -41,6 +63,7 @@ def add_testimonial(request):
         request,
         "blogggel/index.html",
         {
+            "testimonials": testimonials,
             "testimonial_form": testimonial_form
         },
     )
@@ -58,6 +81,25 @@ def testimonial_delete(request, testimonial_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own testimonial!')
 
     return HttpResponseRedirect(reverse('home'))
+
+    def comment_edit(request, slug, comment_id):
+        """
+        view to edit comments
+        """
+        if request.method == "POST":
+            
+            comment = get_object_or_404(Testimonial, pk=testimonial_id)
+            
+
+            if comment_form.is_valid() and comment.author == request.user:
+                testimonial = testimonial_form.save(commit=False)
+                testimonial.approved = False
+                testimonial.save()
+                messages.add_message(request, messages.SUCCESS, 'Testimonial Updated!')
+            else:
+                messages.add_message(request, messages.ERROR, 'Error updating testimonial')
+
+        return HttpResponseRedirect(reverse('home'))
 
 
 

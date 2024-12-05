@@ -11,5 +11,5 @@ class CommentForm(forms.ModelForm):
 class TestimonialForm(forms.ModelForm):
     class Meta:
         model = Testimonial
-        fields = ('job_title', 'text')
+        fields = ('job_title', 'text', 'id')
  
