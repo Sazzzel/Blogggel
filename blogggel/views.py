@@ -20,8 +20,11 @@ from .forms import CommentForm, TestimonialForm
 #     'testimonials': testimonials, 
 #     'testimonial_form' : TestimonialForm(),
 # })
+def GetComments(request):
+    post_list = Post.objects.filter(status=1)
+    return post_list.all().order_by('-created_on')
 
-def PostList(request):
+def GetTestimonials(request):
     if request.user.is_authenticated:
         # approved testimonials and unapproved ones authored by the user
         testimonials = Testimonial.objects.filter(
@@ -33,11 +36,13 @@ def PostList(request):
         #only approved testimonials for unauthenticated users
         testimonials = Testimonial.objects.filter(approved=True)
 
-    post_list = Post.objects.all().order_by('-created_on')
-
+    return testimonials
+   
+def PostList(request):
+   
     return render(request, 'blogggel/index.html', {
-        'post_list': post_list,
-        'testimonials': testimonials,
+        'post_list': GetComments(request),
+        'testimonials': GetTestimonials(request),
         'testimonial_form': TestimonialForm(),
     })
 
@@ -45,7 +50,7 @@ def add_testimonial(request):
 
     if request.method == "POST":
         print("Received a POST request")
-        testimonial_form = TestimonialForm(data=request.POST)
+        testimonial_form = TestimonialForm(request.POST)
         if testimonial_form.is_valid():
             testimonial = testimonial_form.save(commit=False)
             testimonial.author = request.user
