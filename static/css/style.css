@@ -6,7 +6,7 @@
 }
 
 .nav-bg {
-    background-color: #152238;
+    background-color: #004f6e;
 }
 .brand-text{
     color: silver;
@@ -26,7 +26,7 @@
 }
 
 .dark-bg {
-    background-color: #152238;
+    background-color: #004f6e;
 }
 .foot-text{
     color: silver;
@@ -41,7 +41,11 @@ footer p{
     margin: 0;
 }
 .main-bg {
-    background-color: #364857;
+    background-color: #3e657c;
+}
+.logout{
+    padding-top: 20px;
+    padding-bottom: 70px;
 }
 .py-3{
     padding-bottom: 0;
@@ -50,11 +54,20 @@ footer p{
     border: none;
     background-color: transparent;
 }
+.card-img-top {
+    border-radius: 40px;
+}
 .image-container {
     position: relative;
 }
+.testimonial-bg {
+    background-color: #004f6e;
+    padding-bottom: 0;
+    color: #90cae2;
+}
 .testimonial-Accordion {
-    background-color: #3DA6FF;
+    background-color: #004f6e;
+    color: #90cae2;
 }
 .testimonial-item {
     height: 100%; 
@@ -68,6 +81,9 @@ footer p{
     text-decoration: underline;
     font-size: 30px;
 }
+.testimonial-date {
+    font-size: 15px;
+}
 .approval {
     font-weight: light;
     color: #dc3545; 
@@ -77,6 +93,7 @@ footer p{
 .post-link {
     text-decoration: underline;
     color: black;
+    left: 50px;
 }
 .post-link:hover,
 .page-link {
@@ -102,17 +119,17 @@ footer p{
 }
 /* Buttons */
 .accordion-button {
-    background-color: #007bff;  
+    background-color: #e9761b;  
     color: white; 
-    border-color: #007bff; 
+    border-color: #e9761b; 
 }
 .accordion-button:not(.collapsed) {
-    background-color: #007bff;  
+    background-color: #e9761b;  
     color: white; 
-    border-color: #007bff; 
+    border-color: #e9761b; 
 }
 .accordion-button:hover {
-    background-color: #0056b3;  
+    background-color: #ffcc33;  
     color: white; 
 }
 .btn-signup,

@@ -18,15 +18,15 @@
                             <div class="image-container">
                             {% if "placeholder" in post.featured_image.url %}
                                 <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
-                                    src="{% static 'images/logo.png' %}" alt="placeholder image"> </a>
+                                    src="{% static 'images/default.png' %}" alt="placeholder image"> </a>
                             {% else %}
                                 <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
                                     src=" {{ post.featured_image.url }}" alt="{{ post.title }}"> </a>
                                 {% endif %}
-                                <p class="card-text text-muted h6">{{ post.created_on}}
+                                <p class="card-text h6">{{ post.created_on}}
                                 </p>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link d-flex justify-content-center align-items-center">
                                 <h2 class="card-title">{{ post.title }}</h2></a>
                                 <p class="card-text">{{post.excerpt}}</p>
                             
@@ -63,7 +63,7 @@
 
 <!-- Display the latest 3 testimonials -->
 {% if testimonials|length > 0 %}
-<div class="d-flex align-items-center justify-content-between">
+<div class="testimonial-bg d-flex align-items-center justify-content-between">
     <!-- Text Centered -->
     <h3 class="mx-auto"><u><strong>Testimonials</strong></u></h3>
     
@@ -84,7 +84,7 @@
                 <div class="modal-body">
                     {% if user.is_authenticated %}
                     <p>Posting as: {{ user.username }}</p>
-                    <form id="testimonial_form" method="post" action="{% url 'add_testimonial' %}"
+                    <form id="testimonialForm" method="post" action="{% url 'testimonial_add' %}"
                       style="margin-top: 1.3em;">
                       {{ testimonial_form | crispy }}
                       {% csrf_token %}
@@ -101,7 +101,7 @@
 </div>
 
     <!-- View Testimonials -->
-    <div class="row">
+    <div class="row testimonial-bg">
         {% for testimonial in testimonials|slice:":3" %}
         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
             <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
@@ -114,6 +114,11 @@
                     {% endif %}
                     <p><b>Testimonial: </b></p>
                     <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
+                    {% if testimonial.updated_on %}
+                        <p class="testimonial-date">{{ testimonial.updated_on }}</p>
+                    {% else %}
+                        <p class="testimonial-date">{{ testimonial.created_on }}</p>
+                    {% endif %}
                 </div>
     
                 <!-- Approval Section -->
@@ -181,14 +186,19 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
                             <!-- Content Section -->
-                            <div class="content text-center" id="testimonial{{ testimonial.id }}">
-                                <p class="mb-1"><b>User: </b><strong>{{ testimonial.author.username }}</strong></p>
+                            <div class="testimonial-item content text-center" id="testimonial{{ testimonial.id }}">
+                                <p class="mb-1 test-username"><strong>{{ testimonial.author.username }}</strong></p>
                                 {% if testimonial.job_title %}
-                                <p class="mb-1 text-muted"><b>Job Title: </b></p>
+                                <p class="mb-1"><b>Job Title: </b></p>
                                 <p id="testimonial-job{{ testimonial.id }}">{{ testimonial.job_title }}</p>
                                 {% endif %}
                                 <p><b>Testimonial: </b></p>
                                 <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
+                                {% if testimonial.updated_on %}
+                                    <p class="testimonial-date">{{ testimonial.updated_on }}</p>
+                                {% else %}
+                                    <p class="testimonial-date">{{ testimonial.created_on }}</p>
+                                {% endif %}
                             </div>
                             <!-- Approval Section -->
                             {% if not testimonial.approved and testimonial.author == user %}

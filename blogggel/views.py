@@ -7,19 +7,6 @@ from .forms import CommentForm, TestimonialForm
 
 # Create your views here.
 
-
-# def PostList(request):
-#     testimonials = Testimonial.objects.filter(approved=True).order_by('-created_on')
-#     queryset = Post.objects.filter(status=1)
-#     post_list = Post.objects.all().order_by('-created_on')  # Adjust as necessary
-#     paginate_by = 6
-   
-
-#     return render(request, 'blogggel/index.html', {
-#     'post_list': post_list,
-#     'testimonials': testimonials, 
-#     'testimonial_form' : TestimonialForm(),
-# })
 def GetComments(request):
     post_list = Post.objects.filter(status=1)
     return post_list.all().order_by('-created_on')
@@ -46,7 +33,7 @@ def PostList(request):
         'testimonial_form': TestimonialForm(),
     })
 
-def add_testimonial(request):
+def testimonial_add(request):
 
     if request.method == "POST":
         print("Received a POST request")
@@ -87,24 +74,25 @@ def testimonial_delete(request, testimonial_id):
 
     return HttpResponseRedirect(reverse('home'))
 
-    def comment_edit(request, slug, comment_id):
-        """
-        view to edit comments
-        """
-        if request.method == "POST":
-            
-            comment = get_object_or_404(Testimonial, pk=testimonial_id)
-            
+def testimonial_edit(request, testimonial_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+        
+        testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
+        
+        testimonial_form = TestimonialForm(data=request.POST, instance=testimonial)
 
-            if comment_form.is_valid() and comment.author == request.user:
-                testimonial = testimonial_form.save(commit=False)
-                testimonial.approved = False
-                testimonial.save()
-                messages.add_message(request, messages.SUCCESS, 'Testimonial Updated!')
-            else:
-                messages.add_message(request, messages.ERROR, 'Error updating testimonial')
+        if testimonial_form.is_valid() and testimonial.author == request.user:
+            testimonial = testimonial_form.save(commit=False)
+            testimonial.approved = False
+            testimonial.save()
+            messages.add_message(request, messages.SUCCESS, 'Testimonial Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating testimonial')
 
-        return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(reverse('home'))
 
 
 
@@ -166,6 +154,7 @@ def comment_edit(request, slug, comment_id):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
+        
         comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:

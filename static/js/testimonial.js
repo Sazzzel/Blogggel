@@ -38,7 +38,7 @@ for (let button of deleteButtons) {
       testimonialText.value = content;
       testimonialJob.value = job;
       submitButton.innerText = "Update";
-      //testimononialForm.setAttribute("action", `edit_testimonial/${testimonialId}`);
+      testimonialForm.setAttribute("action", `edit_testimonial/${testimonialId}/`);
       addModal.show();
     });
   }
