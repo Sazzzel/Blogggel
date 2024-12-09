@@ -9,10 +9,10 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12 mt-3 ">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-around">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -36,10 +36,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
+          
                 {% endfor %}
 
             </div>
@@ -62,7 +59,7 @@
 
 
 <!-- Display the latest 3 testimonials -->
-{% if testimonials|length > 0 %}
+
 <div class="testimonial-bg d-flex align-items-center justify-content-between">
     <!-- Text Centered -->
     <h3 class="mx-auto"><u><strong>Testimonials</strong></u></h3>
@@ -99,7 +96,7 @@
         </div>
     </div>
 </div>
-
+{% if testimonials|length > 0 %}
     <!-- View Testimonials -->
     <div class="row testimonial-bg">
         {% for testimonial in testimonials|slice:":3" %}
@@ -169,7 +166,7 @@
 
 
 <!-- Testimonials Accordion -->
-{% if testimonials|length > 3 %}
+{% if testimonials|length > 4 %}
 <div class="accordion mt-4" id="testimonialAccordion">
     <div class="accordion-item testimonial-Accordion">
         <h2 class="accordion-header accordionbtn" id="headingOne">
@@ -182,7 +179,7 @@
             data-bs-parent="#testimonialAccordion">
             <div class="accordion-body">
                 <div class="row">
-                    {% for testimonial in testimonials|slice:"3:" %}
+                    {% for testimonial in testimonials|slice:"4:" %}
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
                             <!-- Content Section -->

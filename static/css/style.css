@@ -4,21 +4,26 @@
     font-weight: 700;
     color: #4A4A4F;
 }
-
+.hero-image {
+    width: 100%; 
+    height: 50%;
+}
 .nav-bg {
     background-color: #004f6e;
 }
 .brand-text{
     color: silver;
+    font-size: 20px;
 }
+.link,
 .nav-link{
     color: #FF914D !important; 
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
+    font-size: 20px;
 }
 .nav-link:hover {
     color: pink !important; 
 }
-
 .active {
     color: #3DA6FF !important; 
     text-decoration: underline; 
@@ -47,19 +52,26 @@ footer p{
     padding-top: 20px;
     padding-bottom: 70px;
 }
+.signup {
+    padding-bottom: 70px;
+}
+.login {
+    padding-bottom: 70px;   
+}
 .py-3{
     padding-bottom: 0;
 }
 .card {
     border: none;
     background-color: transparent;
+    width: 80%;
+    height: 80%;
+    color: #d2d2d2;
 }
 .card-img-top {
     border-radius: 40px;
 }
-.image-container {
-    position: relative;
-}
+
 .testimonial-bg {
     background-color: #004f6e;
     padding-bottom: 0;
@@ -106,7 +118,7 @@ footer p{
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
-} */ 
+} 
 
 .link {
     color: #23BBBB;
@@ -136,31 +148,20 @@ footer p{
 .btn-edit, 
 .btn-comment-edit, 
 .btn-testimonial-edit {
-    color: silver;
+    color: #fff;
     background: #E84610;
     margin-left: 20px;
 }
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
-}
-.btn-like {
     color: #E84610;
-    border: none;
-    background: transparent;
 }
 .btn-delete, 
 .btn-comment-delete, 
 .btn-testimonial-delete {
     color: #fff;
     background: #E84610;
-}
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
 }
 .image-flash {
     position: absolute;
@@ -173,42 +174,27 @@ footer p{
     width: 100%;
     height: auto;
 }
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
 .masthead {
-    margin-top: 10px;
-    overflow: hidden;
     position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-} */
+    margin-bottom: 2rem;
+    justify-self: center;
+}
 .masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
+    z-index: 2;
+    justify-self: center;
+    color: #D5D5D5;
 }
-.masthead-image {
-    position: relative;
-    overflow: hidden;
+.masthead-image img {
+    max-height: 50vh;
+    width: auto;
+    justify-self: center;
 }
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+.masthead .row {
+    align-items: center;
 }
-
-.faded {
-    color: rgb(172, 175, 175);
+.article-colour {
+    color: #d2d2d2;
+}
+.comment-colour {
+    color: #d2d2d2;
 }
