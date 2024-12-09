@@ -7,26 +7,116 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-          <h3>{% trans "Sign Up" %}</h3>
+<div class="wizard">
+    
+        
+          <h3>{% trans "Sign Up" %}</h3><hr>
 
-          <p>{% blocktrans %}Welcome back to Blogggel. Do you already have an account? Then please <a class="link" href="{{ login_url }}">sign in</a> instead..{% endblocktrans %}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-
-            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <p>{% blocktrans %}Welcome back to Blogggel.</p> <hr>Do you already have an account?<br> <a class="link" href="{{ login_url }}">sign in</a>{% endblocktrans %}
+        
+      
+      
+        
+            
+          <hr><form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
-            {{ form.as_p }}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="btn btn-signup right" type="submit">{% trans "Sign Up" %} &raquo;</button>
-        </div>
-    </div>
+            <div id="step-0" class="form-step">
+                <h2>What shall we call you?</h2>
+                <label for="id_username">Username</label><br>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <hr><button type="button" class="btn next-step" data-next="step-1">Check if available &raquo;</button>
+            </div>
+        
+            <div id="step-1" class="form-step" style="display: none;">
+                <h2>Tell us about you. What is your email?</h2>
+                <label for="id_email">Email (You don't need to give us this but it would be cool, as we could keep you updated and secure your account!)</label><br>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <hr><button type="button" class="btn prev-step" data-prev="step-0">Go back...</button>
+                <button type="button" class="btn next-step" data-next="step-2">Continue &raquo;</button>
+            </div>
+        
+            <div id="step-2" class="form-step" style="display: none;">
+                <h2>Lets secure your account!</h2>
+                <label for="id_password1">Password</label><br>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password1.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <br><label for="id_password2">Confirm Password</label><br>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <hr><button type="button" class="btn prev-step" data-prev="step-1">Go Back...</button>
+                <button type="submit" class="btn btn-signup">{% trans "Check if I'm done!" %} &raquo;</button>
+            </div>
+        </form>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const steps = document.querySelectorAll(".form-step");
+                const form = document.getElementById("signup_form");
+        
+                // Function to show a specific step
+                function showStep(stepId) {
+                    steps.forEach((step) => {
+                        step.style.display = step.id === stepId ? "block" : "none";
+                    });
+                }
+        
+                // Handle Next and Previous buttons
+                document.querySelectorAll(".btn.next-step, .btn.prev-step").forEach((btn) => {
+                    btn.addEventListener("click", function () {
+                        const targetStep = this.getAttribute("data-next") || this.getAttribute("data-prev");
+                        showStep(targetStep);
+                    });
+                });
+        
+                // Automatically navigate to the first step with an error
+                function navigateToErrorStep() {
+                    const errorSteps = [
+                        { step: "step-0", hasError: !!document.querySelector("#step-0 .errorlist") },
+                        { step: "step-1", hasError: !!document.querySelector("#step-1 .errorlist") },
+                        { step: "step-2", hasError: !!document.querySelector("#step-2 .errorlist") },
+                    ];
+        
+                    const firstErrorStep = errorSteps.find((step) => step.hasError);
+                    if (firstErrorStep) {
+                        showStep(firstErrorStep.step);
+                    } else {
+                        showStep("step-0");
+                    }
+                }
+        
+                // Call navigateToErrorStep on page load
+                navigateToErrorStep();
+            });
+        </script>
+
+      
+    
 </div>
 
 {% endblock content %}
