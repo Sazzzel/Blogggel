@@ -16,13 +16,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Testimonial',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('job_title', models.CharField(blank=True, max_length=200, null=True)),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID')),
+                ('job_title', models.CharField(blank=True, max_length=200,
+                 null=True)),
                 ('text', models.TextField()),
                 ('approved', models.BooleanField(default=False)),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('updated_on', models.DateTimeField(auto_now=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='testimonial_name', to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey
+                 (on_delete=django.db.models.deletion.CASCADE,
+                  related_name='testimonial_name',
+                  to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['-created_on'],

@@ -7,9 +7,11 @@ from .forms import CommentForm, TestimonialForm
 
 # Create your views here.
 
+
 def GetComments(request):
     post_list = Post.objects.filter(status=1)
     return post_list.all().order_by('-created_on')
+
 
 def GetTestimonials(request):
     if request.user.is_authenticated:
@@ -20,18 +22,20 @@ def GetTestimonials(request):
             author=request.user, approved=False
         )
     else:
-        #only approved testimonials for unauthenticated users
+        # only approved testimonials for unauthenticated users
         testimonials = Testimonial.objects.filter(approved=True)
 
     return testimonials
-   
+
+
 def PostList(request):
-   
+
     return render(request, 'blogggel/index.html', {
         'post_list': GetComments(request),
         'testimonials': GetTestimonials(request),
         'testimonial_form': TestimonialForm(),
     })
+
 
 def testimonial_add(request):
 
@@ -47,7 +51,7 @@ def testimonial_add(request):
                 'Testimonial submitted and awaiting approval.'
             )
         return HttpResponseRedirect(reverse('home'))
-    
+
     testimonial_form = TestimonialForm()
     print("About to render template")
 
@@ -60,6 +64,7 @@ def testimonial_add(request):
         },
     )
 
+
 def testimonial_delete(request, testimonial_id):
     """
     view to delete testimonial
@@ -70,31 +75,34 @@ def testimonial_delete(request, testimonial_id):
         testimonial.delete()
         messages.add_message(request, messages.SUCCESS, 'Testimonial deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own testimonial!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own testimonial!')
 
     return HttpResponseRedirect(reverse('home'))
+
 
 def testimonial_edit(request, testimonial_id):
     """
     view to edit comments
     """
     if request.method == "POST":
-        
+
         testimonial = get_object_or_404(Testimonial, pk=testimonial_id)
-        
-        testimonial_form = TestimonialForm(data=request.POST, instance=testimonial)
+
+        testimonial_form = TestimonialForm(data=request.POST,
+                                           instance=testimonial)
 
         if testimonial_form.is_valid() and testimonial.author == request.user:
             testimonial = testimonial_form.save(commit=False)
             testimonial.approved = False
             testimonial.save()
-            messages.add_message(request, messages.SUCCESS, 'Testimonial Updated!')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Testimonial Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating testimonial')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating testimonial')
 
     return HttpResponseRedirect(reverse('home'))
-
-
 
 
 def post_detail(request, slug):
@@ -116,7 +124,6 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
-    
 
     if request.method == "POST":
         print("Received a POST request")
@@ -130,7 +137,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
-    
+
     comment_form = CommentForm()
     print("About to render template")
 
@@ -145,6 +152,7 @@ def post_detail(request, slug):
         },
     )
 
+
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -154,7 +162,7 @@ def comment_edit(request, slug, comment_id):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
-        
+
         comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:
@@ -164,9 +172,11 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -180,6 +190,8 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    

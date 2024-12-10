@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 # Create your models here.
 class Post(models.Model):
     # Basic information
@@ -13,7 +14,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     featured_image = CloudinaryField('image', default='placeholder')
-    #content
+    # content
     article = models.TextField()
     # Metadata
     created_on = models.DateTimeField(auto_now_add=True)
@@ -27,7 +28,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} | Last Updated on {self.updated_on}"
 
-    
+
 class Comment(models.Model):
     # Basic information
     post = models.ForeignKey(
@@ -36,7 +37,7 @@ class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter"
     )
-    #content
+    # content
     body = models.TextField()
     # Metadata
     approved = models.BooleanField(default=False)
@@ -55,10 +56,10 @@ class Testimonial(models.Model):
         User, on_delete=models.CASCADE, related_name="testimonial_name"
     )
     job_title = models.CharField(max_length=200, blank=True, null=True)
-    
-    #content
+
+    # content
     text = models.TextField()
-    
+
     # Metadata
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -68,4 +69,5 @@ class Testimonial(models.Model):
         ordering = ['-created_on']  # Newest testimonials first
 
     def __str__(self):
-        return f"{self.author} - {self.job_title if self.job_title else 'Testimonial'}"
+        return f"{self.author} - {
+         self.job_title if self.job_title else 'Testimonial'}"

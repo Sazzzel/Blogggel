@@ -31,10 +31,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-sazzzel-blogggel-afm7quo28qi.ws.codeinstitute-ide.net', 
+    '8000-sazzzel-blogggel-afm7quo28qi.ws.codeinstitute-ide.net',
     'blogggel-066705e867f8.herokuapp.com'
 ]
 
@@ -102,7 +102,6 @@ TEMPLATES = [
 ]
 
 
-
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -117,8 +116,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # }
 
 DATABASES = {
-'default':
-dj_database_url.parse(os.environ.get("DATABASE_URL"))
+ 'default':
+ dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
@@ -126,16 +125,20 @@ dj_database_url.parse(os.environ.get("DATABASE_URL"))
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
