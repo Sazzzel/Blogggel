@@ -56,10 +56,14 @@
                             {{ comment.body | linebreaks }}
                         </div>
                         {% endif %}
-                        {%if not comment.approved and comment.author == user%} 
-                            <p class="approval">
-                                This comment is awaiting approval
-                            </p>
+                       
+                        {%if comment.author == user%} 
+                        {%if not comment.approved %} 
+                        <p class="approval">
+                            This comment is awaiting approval
+                        </p>
+                    
+                    {% endif %}
                         <div>
                                <button class="btn btn-sm btn-danger btn-comment-delete"
                                 comment_id="{{ comment.id }}">Delete</button>

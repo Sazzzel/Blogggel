@@ -105,7 +105,9 @@ Choosing this as my capstone project felt natural because it’s not just a port
 
 ### Colour Palette
 
-- The colour palette consists of:
+- The colour palette consists of the following pallet of colours. I have also used Black & White:
+
+![Colours](docs/images/colours.png)
 
 
 [Back to Table of Contents](#table-of-contents)
@@ -927,7 +929,7 @@ By following this structured approach, you'll be able to efficiently develop you
 ### Sign-Out Feature
 - Users can sign out, with their session safely terminated.
 
-![Logout](docs/images/logout.png)
+![Logout](docs/images/signout.png)
 
 ### Testimonials Feature
 
@@ -987,14 +989,38 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ## Testing
 
-### Manual Testing
+## Manual Testing
 - Tested across various browsers, including **Chrome**, **Firefox**, **Edge**.
 
-### Responsive Testing
+## Responsive Testing
 - Ensured the website is functional and visually appealing across devices such as desktops, tablets, and mobile phones.
 
-### Validator Testing
+## Validator Testing
 - HTML, CSS, JavaScript, and Python code were validated using tools such as **W3C Validators(HMTL, CSS)**, **JSHint**, and **Python Linter**.
+
+### HTML
+
+- I used the [W3C HTML Validator.](https://validator.w3.org/) to complete the following tests.
+
+### Homepage
+
+![Home Page](docs/images/hometest.png)
+
+### Blog Posts
+
+![Blog Posts](docs/images/Posttest.png)
+
+### Sign In
+
+![Home Page](docs/images/signintest.png)
+
+### Logout
+
+![Home Page](docs/images/signouttest.png)
+
+### Sign Up
+
+![Home Page](docs/images/signuptest.png)
 
 ### Lighthouse Testing
 - **Google Lighthouse** was used to audit performance, accessibility, and SEO.
