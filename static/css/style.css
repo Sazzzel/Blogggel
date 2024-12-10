@@ -171,6 +171,8 @@ footer p{
     justify-self: center;
     
 }
+.next-step:hover,
+.prev-step:hover,
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
