@@ -19,9 +19,9 @@
    
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                <label for="id_username">Username</label><br>
+                <label for="id_login">Username</label><br>
                 {{ form.login }} <br>
-                <label for="id_username">Password</label><br>
+                <label for="id_password">Password</label><br>
                 {{ form.password }}
                 <hr>
      
