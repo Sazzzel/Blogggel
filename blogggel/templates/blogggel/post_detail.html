@@ -28,9 +28,9 @@
         <div class="col-md-12">
             <div>
                 <div class="card-body article-colour">
-                    
+                    <p class="card-text">
                         {{ post.article | safe }}
-                    
+                    </p>
                 </div>
             </div>
         </div>
@@ -44,24 +44,19 @@
             <div>
                 <!-- Loop through comments -->
                 {% for comment in comments %}
-
                 {% if not comment.approved and comment.author == user %}
-                {% elif not comment.approved %} d-none{% endif %}
                     <div class="p-3 mb-3 border rounded comment">
                         <p class="fw-bold">
                             {{ comment.author }}
-                            
+                            <span class="fw-normal">
+                                {{ comment.created_on }}
                             </span> wrote:
                         </p>
                         <div id="comment{{ comment.id }}">
                             {{ comment.body | linebreaks }}
                         </div>
-                        <div class="date">
-                            <span class="fw-normal ">
-                                {{ comment.created_on }}
-                        </div>
                         
-                        {% if not comment.approved and comment.author == user %}
+                        {% elif not comment.approved and comment.author == user%} 
                             <p class="approval">
                                 This comment is awaiting approval
                             </p>
@@ -102,7 +97,7 @@
             </div>
         </div>
     </div>
-</div>
+
 <!-- Delete confirmation modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">

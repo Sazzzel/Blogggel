@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const editButtons = document.getElementsByClassName("btn-testimonial-edit");
 const testimonialText = document.getElementById("id_text");
 const testimonialJob = document.getElementById("id_job_title")

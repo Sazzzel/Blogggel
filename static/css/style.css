@@ -100,11 +100,11 @@ footer p{
 }
 .approval {
     background-color: Black;
-    font-weight: light;
+    font-weight: lighter;
     color: #da2020b9; 
     font-size: 15px;
     text-decoration: solid;
-    border: 10px solid Black 
+    border: 10px solid #000000 
 }
 .post-link {
     text-decoration: underline;
@@ -137,12 +137,12 @@ footer p{
 .accordion-button {
     background-color: #e9761b;  
     color: white; 
-    border-color: #e9761b; 
+    border-color: rgb(233, 118, 27); 
 }
 .accordion-button:not(.collapsed) {
     background-color: #e9761b;  
     color: white; 
-    border-color: #e9761b; 
+    border-color: rgb(233, 118, 27); 
 }
 .accordion-button:hover {
     background-color: #3DA6FF ;  
