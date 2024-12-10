@@ -70,6 +70,106 @@
     </button>
 </div>
 
+
+{% if testimonials|length > 0 %}
+    <!-- View Testimonials -->
+    <div class="row testimonial-bg">
+        {% for testimonial in testimonials|slice:":3" %}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
+                    <!-- Content Section -->
+                    <div class="content text-center" id="testimonial{{ testimonial.id }}">
+                        <p class="mb-1 test-username"><strong>{{ testimonial.author.username }}</strong></p>
+                            {% if testimonial.job_title %}
+                                <p class="mb-1 "><b>Job Title: </b></p>
+                                <p id="testimonial-job{{ testimonial.id }}">{{ testimonial.job_title }}</p>
+                            {% endif %}
+                        <p><b>Testimonial: </b></p>
+                        <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
+                        {% if testimonial.updated_on %}
+                            <p class="testimonial-date">{{ testimonial.updated_on }}</p>
+                        {% else %}
+                            <p class="testimonial-date">{{ testimonial.created_on }}</p>
+                        {% endif %}
+                    </div>
+        
+                    <!-- Approval Section -->
+                    {% if not testimonial.approved and testimonial.author == user %}
+                        <p class="approval mb-3">
+                            This testimonial is awaiting approval
+                        </p>
+                    {% endif %}
+        
+                    <!-- Edit/Delete Buttons -->
+                    {% if user.is_authenticated and testimonial.author == user %}
+                        <div class="mt-3">
+                            <button class="btn btn-testimonial-delete" data-testimonial-id="{{ testimonial.id }}">Delete</button>
+                            <button class="btn btn-testimonial-edit" data-testimonial-id="{{ testimonial.id }}">Edit</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+<!-- Testimonials Accordion -->
+{% if testimonials|length >= 4 %}
+<div class="accordion mt-4" id="testimonialAccordion">
+    <div class="accordion-item testimonial-Accordion">
+        <h2 class="accordion-header accordionbtn" id="headingOne">
+            <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Testimonials - see more
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#testimonialAccordion">
+            <div class="accordion-body">
+                <div class="row">
+                    {% for testimonial in testimonials|slice:"3:" %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
+                            <!-- Content Section -->
+                            <div class="content text-center" id="testimonial{{ testimonial.id }}">
+                                <p class="mb-1 test-username"><strong>{{ testimonial.author.username }}</strong></p>
+                                    {% if testimonial.job_title %}
+                                        <p class="mb-1 "><b>Job Title: </b></p>
+                                        <p id="testimonial-job{{ testimonial.id }}">{{ testimonial.job_title }}</p>
+                                    {% endif %}
+                                <p><b>Testimonial: </b></p>
+                                <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
+                                {% if testimonial.updated_on %}
+                                    <p class="testimonial-date">{{ testimonial.updated_on }}</p>
+                                {% else %}
+                                    <p class="testimonial-date">{{ testimonial.created_on }}</p>
+                                {% endif %}
+                            </div>
+                
+                            <!-- Approval Section -->
+                            {% if not testimonial.approved and testimonial.author == user %}
+                                <p class="approval mb-3">
+                                    This testimonial is awaiting approval
+                                </p>
+                            {% endif %}
+                
+                            <!-- Edit/Delete Buttons -->
+                            {% if user.is_authenticated and testimonial.author == user %}
+                                <div class="mt-3">
+                                    <button class="btn btn-testimonial-delete" data-testimonial-id="{{ testimonial.id }}">Delete</button>
+                                    <button class="btn btn-testimonial-edit" data-testimonial-id="{{ testimonial.id }}">Edit</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
 <!-- Add Testimonial Modal -->
 <div class="modal fade" id="addTestimonialModal" aria-labelledby="addTestimonialModalLabel" >
     <div class="modal-dialog">
@@ -96,136 +196,32 @@
         </div>
     </div>
 </div>
-{% if testimonials|length > 0 %}
-    <!-- View Testimonials -->
-    <div class="row testimonial-bg">
-        {% for testimonial in testimonials|slice:":3" %}
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
-                <!-- Content Section -->
-                <div class="content text-center" id="testimonial{{ testimonial.id }}">
-                    <p class="mb-1 test-username"><strong>{{ testimonial.author.username }}</strong></p>
-                    {% if testimonial.job_title %}
-                    <p class="mb-1 "><b>Job Title: </b></p>
-                    <p id="testimonial-job{{ testimonial.id }}">{{ testimonial.job_title }}</p>
-                    {% endif %}
-                    <p><b>Testimonial: </b></p>
-                    <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
-                    {% if testimonial.updated_on %}
-                        <p class="testimonial-date">{{ testimonial.updated_on }}</p>
-                    {% else %}
-                        <p class="testimonial-date">{{ testimonial.created_on }}</p>
-                    {% endif %}
-                </div>
-    
-                <!-- Approval Section -->
-                {% if not testimonial.approved and testimonial.author == user %}
-                <p class="approval mb-3">
-                    This testimonial is awaiting approval
-                </p>
-                {% endif %}
-    
-                <!-- Edit/Delete Buttons -->
-                {% if user.is_authenticated and testimonial.author == user %}
-                <div class="mt-3">
-                    <button class="btn btn-testimonial-delete" testimonial_id="{{ testimonial.id }}">Delete</button>
-                    <button class="btn btn-testimonial-edit" testimonial_id="{{ testimonial.id }}">Edit</button>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-{% endif %}
 
-<!-- Delete confirmation modal -->
+    <!-- Delete confirmation modal -->
 <div class="modal fade " id="deleteModal" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content delete-modal">
-      <div class="modal-header">
-        <h5 class="modal-title"
-          id="deleteModalLabel">Delete testimonial?</h5>
-        <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your testimonial?
-        This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <a id="deleteConfirm" href="#" class="btn
-        btn-delete-conf">Delete</a>
-        <button type="button" class="btn btn-secondary btn-close-conf"
-          data-bs-dismiss="modal">Close</button>
-        
-      </div>
+aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal-dialog ">
+  <div class="modal-content delete-modal">
+    <div class="modal-header">
+      <h5 class="modal-title"
+        id="deleteModalLabel">Delete testimonial?</h5>
+      <button type="button" class="btn-close"
+        data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to delete your testimonial?
+      This action cannot be undone.
+    </div>
+    <div class="modal-footer">
+      <a id="deleteConfirm" href="#" class="btn
+      btn-delete-conf">Delete</a>
+      <button type="button" class="btn btn-secondary btn-close-conf"
+        data-bs-dismiss="modal">Close</button>
+      
     </div>
   </div>
 </div>
-
-
-<!-- Testimonials Accordion -->
-{% if testimonials|length > 4 %}
-<div class="accordion mt-4" id="testimonialAccordion">
-    <div class="accordion-item testimonial-Accordion">
-        <h2 class="accordion-header accordionbtn" id="headingOne">
-            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Testimonials - see more
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-            data-bs-parent="#testimonialAccordion">
-            <div class="accordion-body">
-                <div class="row">
-                    {% for testimonial in testimonials|slice:"4:" %}
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="testimonial-item border rounded p-3 d-flex flex-column align-items-center justify-content-between">
-                            <!-- Content Section -->
-                            <div class="testimonial-item content text-center" id="testimonial{{ testimonial.id }}">
-                                <p class="mb-1 test-username"><strong>{{ testimonial.author.username }}</strong></p>
-                                {% if testimonial.job_title %}
-                                <p class="mb-1"><b>Job Title: </b></p>
-                                <p id="testimonial-job{{ testimonial.id }}">{{ testimonial.job_title }}</p>
-                                {% endif %}
-                                <p><b>Testimonial: </b></p>
-                                <p id="testimonial-text{{ testimonial.id }}">{{ testimonial.text }}</p>
-                                {% if testimonial.updated_on %}
-                                    <p class="testimonial-date">{{ testimonial.updated_on }}</p>
-                                {% else %}
-                                    <p class="testimonial-date">{{ testimonial.created_on }}</p>
-                                {% endif %}
-                            </div>
-                            <!-- Approval Section -->
-                            {% if not testimonial.approved and testimonial.author == user %}
-                            <p class="approval text-danger mb-3">
-                                This testimonial is awaiting approval
-                            </p>
-                            {% endif %}
-                            <!-- Edit/Delete Buttons -->
-                            {% if user.is_authenticated and testimonial.author == user %}
-                            <div class="mt-3">
-                                <button class="btn btn-testimonial-delete" testimonial_id="{{ testimonial.id }}">
-                                    Delete
-                                </button>
-                                <button class="btn btn-testimonial-edit" testimonial_id="{{ testimonial.id }}">
-                                    Edit
-                                </button>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-{% endif %}
-
-
-    
 
 <!-- index.html content ends here -->
 {% endblock content %}
