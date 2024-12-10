@@ -101,6 +101,8 @@ Choosing this as my capstone project felt natural because it’s not just a port
 
 ### Typography and Fonts Used
 
+- I used [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3?query=Source+Sans+3) as my main font as it is easy to read on different screen sizes.
+
 
 
 ### Colour Palette
@@ -989,6 +991,24 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ## Testing
 
+| HTML Source Code/Page | Errors | Warnings | Details |
+| ---- | ------ | -------- | -------- |
+| Home | 0 | 0 | |
+| Sign In | 0 | 0 | |
+| Sign Up | 0 | 0 | |
+| Blog Post | 0 | 0 | |
+| Comment Logged In| * | 0 | 2 Errors per Comment |
+| Add Comment | 0 | 0 |
+| Edit Comment | 0 | 0 |
+| Delete Comment | 0 | 0 |
+| Testimonial Logged In | * | 0 | 2 Errors per Testimonial |
+| Create Testimonial | 0 | 0 |
+| Edit Testimonial | 0 | 0 |
+| Delete Testimonial| 0 | 0 |
+| Error 403 | 0 | 0 |
+| Error 404 | 0 | 0 |
+| Error 500 | 0  | 0 |
+
 ## Manual Testing
 - Tested across various browsers, including **Chrome**, **Firefox**, **Edge**.
 
@@ -1004,11 +1024,21 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ### Homepage
 
+- On the home page if I am logged out I get a clean bill of health.
+
 ![Home Page](docs/images/hometest.png)
+
+- However if I am logged in I get an error for the edit and delete buttons on the testimonials. I have used the code shown to us in the code institute blog walk through and the error I am  getting is about the testimonial-Id being inside the button.
+
+![Home Page Error](docs/images/testimonialerror.png)
 
 ### Blog Posts
 
 ![Blog Posts](docs/images/Posttest.png)
+
+- However if I am logged in I get an error for the edit and delete buttons on the comments for the same reason as the testimonials, the ID being in the button. As before I have used the code taught to me bt the Code Institute blog walk through.
+
+![Home Page Error](docs/images/commenterror.png)
 
 ### Sign In
 
