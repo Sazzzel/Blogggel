@@ -12,8 +12,8 @@
         <div class="col-12 mt-3 ">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-around">
-                    <div class="card mb-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-around ">
+                    <div class="card mb-4 postholder">
                         <div class="card-body">
                             <div class="image-container">
                             {% if "placeholder" in post.featured_image.url %}
@@ -23,16 +23,16 @@
                                 <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
                                     src=" {{ post.featured_image.url }}" alt="{{ post.title }}"> </a>
                                 {% endif %}
-                                <p class="card-text h6">{{ post.created_on}}
-                                </p>
+                                <hr>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link d-flex justify-content-center align-items-center">
-                                <h2 class="card-title">{{ post.title }}</h2></a>
+                                {{ post.title }}</a>
                                 <p class="card-text">{{post.excerpt}}</p>
                             
 
                             <hr>
-                           
+                           <p class="card-text h6">{{ post.created_on}}
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
 <!-- Add Testimonial Modal -->
 <div class="modal fade" id="addTestimonialModal" aria-labelledby="addTestimonialModalLabel" >
     <div class="modal-dialog">
-        <div class="wizard">
+        <div class="modal-content wizard">
             <div class="modal-header">
                 <h5 class="modal-title" id="addTestimonialModalLabel">Add a Testimonial</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -89,7 +89,7 @@
                         class="btn btn-signup btn-lg">Submit</button>
                     </form>
                     {% else %}
-                    <p>Log in to write a testimonial</p>
+                    <p><a href="{% url 'account_login' %}">log in</a> to write a testimonial</p>
                     {% endif %}
                 </div>
             
@@ -120,7 +120,7 @@
     
                 <!-- Approval Section -->
                 {% if not testimonial.approved and testimonial.author == user %}
-                <p class="approval text-danger mb-3">
+                <p class="approval mb-3">
                     This testimonial is awaiting approval
                 </p>
                 {% endif %}
@@ -140,10 +140,10 @@
 {% endif %}
 
 <!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1"
+<div class="modal fade " id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog ">
+    <div class="modal-content delete-modal">
       <div class="modal-header">
         <h5 class="modal-title"
           id="deleteModalLabel">Delete testimonial?</h5>
@@ -155,10 +155,11 @@
         This action cannot be undone.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
         <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
+        btn-delete-conf">Delete</a>
+        <button type="button" class="btn btn-secondary btn-close-conf"
+          data-bs-dismiss="modal">Close</button>
+        
       </div>
     </div>
   </div>

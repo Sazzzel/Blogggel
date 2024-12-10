@@ -44,26 +44,37 @@
             <div>
                 <!-- Loop through comments -->
                 {% for comment in comments %}
-                    <div class="p-3 mb-3 border rounded">
+
+                {% if not comment.approved and comment.author == user %}
+                {% elif not comment.approved %} d-none{% endif %}
+                    <div class="p-3 mb-3 border rounded comment">
                         <p class="fw-bold">
                             {{ comment.author }}
-                            <span class="fw-normal">
-                                {{ comment.created_on }}
+                            
                             </span> wrote:
                         </p>
                         <div id="comment{{ comment.id }}">
                             {{ comment.body | linebreaks }}
                         </div>
+                        <div class="date">
+                            <span class="fw-normal ">
+                                {{ comment.created_on }}
+                        </div>
+                        
                         {% if not comment.approved and comment.author == user %}
                             <p class="approval">
                                 This comment is awaiting approval
                             </p>
+                            
                         {% endif %}
                         {% if user.is_authenticated and comment.author == user %}
-                            <button class="btn btn-sm btn-danger btn-comment-delete"
+                        <div>
+                               <button class="btn btn-sm btn-danger btn-comment-delete"
                                 comment_id="{{ comment.id }}">Delete</button>
                             <button class="btn btn-sm btn-secondary btn-comment-edit"
                                 comment_id="{{ comment.id }}">Edit</button>
+                        </div>
+                         
                         {% endif %}
                     </div>
                 {% empty %}
@@ -85,7 +96,7 @@
                             <button type="submit" id="submitButton" class="btn btn-primary btn-lg mt-3">Submit</button>
                         </form>
                     {% else %}
-                        <p>Please <a href="{% url 'login' %}">log in</a> to leave a comment.</p>
+                        <p>Please <a href="{% url 'account_login' %}">log in</a> to leave a comment.</p>
                     {% endif %}
                 </div>
             </div>
@@ -96,7 +107,7 @@
 <div class="modal fade" id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content delete-modal">
       <div class="modal-header">
         <h5 class="modal-title"
           id="deleteModalLabel">Delete comment?</h5>
@@ -108,10 +119,11 @@
         This action cannot be undone.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
         <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
+        btn-delete-conf">Delete</a>
+        <button type="button" class="btn btn-secondary btn-close-conf"
+          data-bs-dismiss="modal">Close</button>
+        
       </div>
     </div>
   </div>
