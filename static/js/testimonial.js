@@ -1,12 +1,12 @@
 /* jshint esversion: 6 */
 const editButtons = document.getElementsByClassName("btn-testimonial-edit");
 const testimonialText = document.getElementById("id_text");
-const testimonialJob = document.getElementById("id_job_title")
+const testimonialJob = document.getElementById("id_job_title");
 const testimonialForm = document.getElementById("testimonialForm");
 const submitButton = document.getElementById("submitButton");
 
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const addModal = new bootstrap.Modal(document.getElementById("addTestimonialModal"))
+const addModal = new bootstrap.Modal(document.getElementById("addTestimonialModal"));
 const deleteButtons = document.getElementsByClassName("btn-testimonial-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
