@@ -44,7 +44,7 @@
             <div>
                 <!-- Loop through comments -->
                 {% for comment in comments %}
-                {% if not comment.approved and comment.author == user %}
+                {% if comment.approved or  comment.author == user %}
                     <div class="p-3 mb-3 border rounded comment">
                         <p class="fw-bold">
                             {{ comment.author }}
@@ -55,14 +55,11 @@
                         <div id="comment{{ comment.id }}">
                             {{ comment.body | linebreaks }}
                         </div>
-                        
-                        {% elif not comment.approved and comment.author == user%} 
+                        {% endif %}
+                        {%if not comment.approved and comment.author == user%} 
                             <p class="approval">
                                 This comment is awaiting approval
                             </p>
-                            
-                        {% endif %}
-                        {% if user.is_authenticated and comment.author == user %}
                         <div>
                                <button class="btn btn-sm btn-danger btn-comment-delete"
                                 comment_id="{{ comment.id }}">Delete</button>
