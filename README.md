@@ -89,9 +89,8 @@ Creating a full-stack development blog that integrates my GitHub repositories an
 
 Choosing this as my capstone project felt natural because it’s not just a portfolio—it’s a bridge between the years I’ve spent nlearning from others and the career I’m building for myself. It demonstrates my ability to manage complex tasks, learn new technologies, and create something that celebrates both where I’ve been and where I’m headed.
 
-- [Visit Site]()
-- [Find me on LinkedIN](https://www.linkedin.com/feed/)
-
+- [Visit Site](https://blogggel-066705e867f8.herokuapp.com/)
+- [Find me on LinkedIN](https://www.linkedin.com/in/sarah-darlington-dev/)
 ## User Experience (UX) Design
 
 
@@ -122,18 +121,18 @@ Wireframes were created to guide the layout of each key page of the website:
 
 - These are my mobile wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
 
-![Mobile Wireframes](docs/images/PhoneWire.png)
+![Mobile Wireframes](docs/images/mobile.png)
 
 
 ### Tablet Wireframes
 - These are my tablet wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
 
-![Tablet Wireframes](docs/images/TabletWire.png)
+![Tablet Wireframes](docs/images/Tablet.png)
 
 ### Desktop Wireframes
 - These are my Desktop wireframes showing the individual website pages. (The Colours indicate different sections, not the final colours.)
 
-![Desktop Wireframes](docs/images/DesktopWire.png)
+![Desktop Wireframes](docs/images/Desktop.png)
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -894,32 +893,88 @@ By following this structured approach, you'll be able to efficiently develop you
 ### Home Page
 - Displays a list of recent blog posts and highlights of portfolio projects.
 
-### GitHub Page
-- Provides insight into my background, interests, and motivations.
-
-### Certifications Page
-- Provides insight into my background, interests, and motivations.
+![Post Homepage](docs/images/posts.png)
 
 ### Blog Page
 - Users can view all blog posts, search by programming languages, and see featured articles.
 
+![Blogpost Page](docs/images/blogpost.png)
+
 ### Navigation Bar
 - Available throughout the site with links to Home, Blog, About, and Contact pages.
+
+![Navbar](docs/images/navbar.png)
 
 ### Footer
 - Contains links to social media, quick navigation, and contact information.
 
+![Footer](docs/images/footer.png)
+
 ### Sign-Up Feature
 - Visitors can create an account to engage with content and personalize their experience.
+
+![Signup Step1](docs/images/signup1.png)
+
+![Signup Step2](docs/images/signup2.png)
+
+![Signup Step3](docs/images/signup3.png)
 
 ### Sign-In Feature
 - Registered users can log in to access member-only content and features.
 
+![SignIn](docs/images/signin.png)
+
 ### Sign-Out Feature
 - Users can sign out, with their session safely terminated.
 
-### Admin Features
-- Admins can create, edit, delete posts, manage users, and moderate content.
+![Logout](docs/images/logout.png)
+
+### Testimonials Feature
+
+- Users can view testimonials that have been approved on the home page. 
+
+![Testimonials](docs/images/testimonials.png)
+
+- Users can create testimonials by clicking the add testimonail button and filling out the form in the testimonial modal.
+
+![Add Testimonial](docs/images/addtestimonial.png)
+
+![Testimonial Form](docs/images/testimonialform.png)
+ 
+- Users can always see, edit and delete a testimonial they have created.
+- until it is approved it will not be shown to other users.
+
+![Testimonial Loggedin View](docs/images/testimonialNA.png)
+
+- Users can also edit testimonials they have created.
+
+![Edit Testimonial](docs/images/edittestimonial.png)
+
+- Users can also delete testimonials they have created and will be prompted to confirm.
+
+![Delete Testimonial](docs/images/deltestimonial.png)
+
+### Comments Feature
+- Users can view comments that have been approved under each the blog post.
+
+![Comments](docs/images/comment.png)
+
+- Users can create comments by adding text into the comment box at the bottom of the blog and clicking Submit.
+
+![Add Comment](docs/images/commentform.png)
+ 
+- Users can always see, edit and delete comments they have created.
+- until it is approved it will not be shown to other users.
+
+![Comment Loggedin View](docs/images/commentNA.png)
+
+- Users can also edit comments they have created.
+
+![Edit Comment](docs/images/editcomments.png)
+
+- Users can also delete testimonials they have created and will be prompted to confirm.
+
+![Delete Comment](docs/images/delcomment.png)
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -933,13 +988,13 @@ By following this structured approach, you'll be able to efficiently develop you
 ## Testing
 
 ### Manual Testing
-- Tested across various browsers, including **Chrome**, **Firefox**, **Edge**, and **Safari**.
+- Tested across various browsers, including **Chrome**, **Firefox**, **Edge**.
 
 ### Responsive Testing
 - Ensured the website is functional and visually appealing across devices such as desktops, tablets, and mobile phones.
 
 ### Validator Testing
-- HTML, CSS, JavaScript, and Python code were validated using tools such as **W3C Validator**, **JSHint**, and **PEP8**.
+- HTML, CSS, JavaScript, and Python code were validated using tools such as **W3C Validators(HMTL, CSS)**, **JSHint**, and **Python Linter**.
 
 ### Lighthouse Testing
 - **Google Lighthouse** was used to audit performance, accessibility, and SEO.

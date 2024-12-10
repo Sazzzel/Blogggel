@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+.body {
+
+    font-family: "Dancing Script", cursive !important;
+}
 .brand {
-    font-family: Lato, sans-serif;
+    /* font-family: Lato, sans-serif; */
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
@@ -12,7 +18,7 @@
     background-color: #004f6e;
 }
 .brand-text{
-    color: silver;
+    color: #c0c0c0;
     font-size: 20px;
 }
 .link,
@@ -34,11 +40,11 @@
     background-color: #004f6e;
 }
 .foot-text{
-    color: silver;
+    color: #c0c0c0;
     font-size: 25px;
 }
 .foot-links{
-    color: goldenrod !important;
+    color: #FF914D !important;
     font-size: 30px;
     margin-bottom: 6px;
 }
@@ -63,13 +69,13 @@ footer p{
     background-color: transparent;
     width: 80%;
     height: 80%;
-    color: #d2d2d2;
+    color: #c0c0c0;
 
 }
 .card-img-top {
     border-radius: 40px;    
 
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px #000000;
 }
 
 .testimonial-bg {
@@ -89,7 +95,7 @@ footer p{
     text-align: center;
     font-size: 20px;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px #000000;
 }
 .test-username{
     text-decoration: underline;
@@ -99,16 +105,16 @@ footer p{
     font-size: 15px;
 }
 .approval {
-    background-color: Black;
-    font-weight: lighter;
-    color: #da2020b9; 
+    
+    font-weight: bold;
+    color: Black; 
     font-size: 15px;
-    text-decoration: solid;
-    border: 10px solid #000000 
+    text-decoration: underline;
+    
 }
 .post-link {
     text-decoration: underline;
-    color: black;
+    color: #000000;
     left: 50px;
 }
 .post-link:hover,
@@ -121,7 +127,7 @@ footer p{
 }
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #c0c0c0;
 } 
 
 .link {
@@ -146,7 +152,7 @@ footer p{
 }
 .accordion-button:hover {
     background-color: #3DA6FF ;  
-    color: white; 
+    color: #fff; 
 }
 .btn-close-conf,
 .prev-step,
@@ -154,7 +160,7 @@ footer p{
 .btn-comment-edit, 
 .btn-testimonial-edit {
     color: #fff;
-    background: #E84610;
+    background: #e9761b;
     margin-left: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px black;
@@ -176,21 +182,14 @@ footer p{
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #E84610;
+    color: #e9761b;
 }
 .btn-delete-conf,
 .btn-delete, 
 .btn-comment-delete, 
 .btn-testimonial-delete {
     color: #fff;
-    background: #E84610;
-}
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
+    background: #e9761b;
 }
 .scale {
     width: 100%;
@@ -230,12 +229,12 @@ footer p{
     align-items: center;
 }
 .article-colour {
-    color: #d2d2d2;
+    color: #c0c0c0;
     background-color: #445261;
     box-shadow: 5px 5px 10px black;
 }
 .comment-colour {
-    color: #d2d2d2;
+    color: #c0c0c0;
 
 }
 .wizard {
@@ -245,7 +244,7 @@ footer p{
     background-color: #445261;
     box-shadow: 5px 5px 10px black;
     margin: 50px;
-    color: #d2d2d2;
+    color: #c0c0c0;
     justify-self: center;
     min-width: 600px;
 
@@ -262,7 +261,7 @@ footer p{
     border-radius: 30px;
     background-color: #445261;
     box-shadow: 5px 5px 10px black;
-    color: #d2d2d2;
+    color: #c0c0c0;
     justify-self: center;
     flex-direction: column; 
     align-items: center;    /* Vertically center */
@@ -279,7 +278,7 @@ footer p{
     background-color: #445261;
     box-shadow: 5px 5px 10px black;
     margin: 50px;
-    color: #d2d2d2;
+    color: #c0c0c0;
     justify-self: center;
     flex-direction: column; 
     align-items: center;    /* Vertically center */
@@ -324,13 +323,13 @@ footer p{
     width: 90%;
     margin: 10px 0;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #c0c0c0;
     border-radius: 5px;
 }
 .delete-modal {
     background-color: #445261;
-    color: #d2d2d2;
-    border: 2px solid #d2d2d2;
+    color: #c0c0c0;
+    border: 2px solid #c0c0c0;
 }
 .date {
     font-size: 14px;
