@@ -41,21 +41,34 @@
     - [Admin User Story 13: Discord Bot Integration for Blog Posts](#admin-user-story-13-discord-bot-integration-for-blog-posts)
 - [Features](#features)
   - [Home Page](#home-page)
-  - [About Page](#about-page)
   - [Blog Page](#blog-page)
   - [Navigation Bar](#navigation-bar)
   - [Footer](#footer)
   - [Sign-Up Feature](#sign-up-feature)
   - [Sign-In Feature](#sign-in-feature)
   - [Sign-Out Feature](#sign-out-feature)
-  - [Admin Features](#admin-features)
+  - [Testimonials Feature](#testimonialsfeature)
+  - [Comments Feature](#comments-feature)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Data Structure and Relationships](#data-structure-and-relationships)
 - [Testing](#testing)
   - [Manual Testing](#manual-testing)
   - [Responsive Testing](#responsive-testing)
   - [Validator Testing](#validator-testing)
+    - [HTML](#html)
+      - [Homepage](#homepage)
+      - [Blog Posts](#blog-posts)
+      - [Sign In](#sign-in)
+      - [Logout](#logout)
+      - [Sign Up](#sign-up)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
   - [Lighthouse Testing](#lighthouse-testing)
+- [Bugs](#bugs)
+  - [Bugs In GitHub](#bugs-in-gitHub)
+  - [Bugs In The Brain](#bugs-in-the-brain)
+  - [Database Died?](#database-died)
+  - [Bugs In My Buttons](#bugs-in-my-buttons)
 - [Deployment](#deployment)
   - [Connecting to GitHub](#connecting-to-github)
   - [Django Project Setup](#django-project-setup)
@@ -991,17 +1004,17 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ## Testing
 
-| HTML Source Code/Page | Errors | Warnings | Details |
-| ---- | ------ | -------- | -------- |
-| Home | 0 | 0 | |
-| Sign In | 0 | 0 | |
-| Sign Up | 0 | 0 | |
-| Blog Post | 0 | 0 | |
-| Comment Logged In| * | 0 | 2 Errors per Comment |
+| HTML Source Code/Page | Errors | Warnings |
+| ---- | ------ | -------- |
+| Home | 0 | 0 |
+| Sign In | 0 | 0 |
+| Sign Up | 0 | 0 |
+| Blog Post | 0 | 0 |
+| Comment Logged In| 0 | 0 | 
 | Add Comment | 0 | 0 |
 | Edit Comment | 0 | 0 |
 | Delete Comment | 0 | 0 |
-| Testimonial Logged In | * | 0 | 2 Errors per Testimonial |
+| Testimonial Logged In | 0 | 0 |
 | Create Testimonial | 0 | 0 |
 | Edit Testimonial | 0 | 0 |
 | Delete Testimonial| 0 | 0 |
@@ -1015,30 +1028,66 @@ By following this structured approach, you'll be able to efficiently develop you
 ## Responsive Testing
 - Ensured the website is functional and visually appealing across devices such as desktops, tablets, and mobile phones.
 
+### Mobile
+
+- Samsung Galaxy G20 Ultra 
+
+![Samsung Galaxy G20 Ultra](docs/images/SamsungG20.png)
+
+- Samsung Galaxy G20 Ultra Rotated
+
+![Samsung Galaxy G20 Ultra Rotated](docs/images/SamsungG20rot.png)
+
+- Iphone 14 Pro Max
+
+![Iphone 14 Pro Max](docs/images/Iphone14.png)
+
+- Iphone 14 Pro Max Rotated
+
+![Iphone 14 Pro Max Rotated](docs/images/Iphone14rot.png)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+### Tablet
+
+- iPad Air 
+
+![iPad Air](/docs/images/IpadAir.png)
+
+- iPad Air Rotated
+
+![iPad Air Rotated](/docs/images/IpadAirrot.png)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+### Desktop
+
+- 17Inch 1920 x 1080 Laptop
+
+![17Inch 1920 x 1080](/docs/images/laptop.png)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
 ## Validator Testing
 - HTML, CSS, JavaScript, and Python code were validated using tools such as **W3C Validators(HMTL, CSS)**, **JSHint**, and **Python Linter**.
 
 ### HTML
 
-- I used the [W3C HTML Validator.](https://validator.w3.org/) to complete the following tests.
+- I used the [W3C HTML](https://validator.w3.org/) to validate the JavaScript code added to the project.
 
 ### Homepage
 
-- On the home page if I am logged out I get a clean bill of health.
-
 ![Home Page](docs/images/hometest.png)
-
-- However if I am logged in I get an error for the edit and delete buttons on the testimonials. I have used the code shown to us in the code institute blog walk through and the error I am  getting is about the testimonial-Id being inside the button.
-
-![Home Page Error](docs/images/testimonialerror.png)
 
 ### Blog Posts
 
 ![Blog Posts](docs/images/Posttest.png)
-
-- However if I am logged in I get an error for the edit and delete buttons on the comments for the same reason as the testimonials, the ID being in the button. As before I have used the code taught to me bt the Code Institute blog walk through.
-
-![Home Page Error](docs/images/commenterror.png)
 
 ### Sign In
 
@@ -1052,10 +1101,96 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ![Home Page](docs/images/signuptest.png)
 
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+### CSS
+
+- I used [W3C CSS](https://jigsaw.w3.org/css-validator/) to validate the JavaScript code added to the project.
+
+![Home Page](docs/images/css.png)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+### JavaScript
+
+- I used [JSHint](https://jshint.com/) to validate the JavaScript code added to the project.
+
+| Page | Screenshot | Errors | Warnings |
+| ---- | ---------- | ------ | -------- |
+| comments.js | ![comments.js](docs/images/testimonialsjs.png) | none | none |
+| testimonial.js | ![testimonial.js](docs/images/commentsjs.png) | none | none |
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
+### Python
+
+
 ### Lighthouse Testing
 - **Google Lighthouse** was used to audit performance, accessibility, and SEO.
 
 [Back to Table of Contents](#table-of-contents)
+
+# Bugs
+
+### Bugs in GitHub
+
+- I got an error after adding my user / Admin stories to GitHub and creating my project board. I cannot say what created this bug as alot of my class got it aswell.
+
+- The error was showing that my GitPod project was a commit behind my GitHub repo. 
+
+- I fixed this by adding the following code into my terminal
+```
+git pull --rebase origin main
+```
+
+---
+
+### Bugs In The Brain
+
+- Not an easy one to fix. 
+- On day 4 into our project I broke my project. In a panic and without thinking I DELETED my repo!
+- It wasn't until after I had confirmed deletion that I realized just how much work I had lost.
+   - Putting all the User / Admin stories into the Issues 
+   - Adding them all again to my readme. 
+   - The content list and basic structure of the readme file.
+   - Having Django set up with working models and admin page.
+
+- Although I lost a lot and was almost a week behind everyone, I think I have still managed to make my MVP.
+
+---
+
+### Database Died?
+
+- I was having issues with my migrations.
+- I had ran both 
+```
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+```
+- All I was getting is errors.
+
+- I fixed this by creating and adding a new database and running the code above in the terminal.
+
+---
+
+### Bugs In My Buttons
+- I had an issue where my edit and delete buttons where giving me errors in the HTML validaters(see below).
+- I fixed this by adding 'data-' infront of the ID in these buttons.
+
+![Home Page Error](docs/images/testimonialerror.png)
+
+![Home Page Error](docs/images/commenterror.png)
+
+[Back to Table of Contents](#table-of-contents)
+
+---
 
 # Deployment
 
