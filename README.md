@@ -1128,7 +1128,17 @@ By following this structured approach, you'll be able to efficiently develop you
 
 ---
 
-### Python
+### python
+
+### Python Validation
+
+- I used  [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. No issues presented and line lengths were double checked. I have included some screenshots with the results below.
+
+| Feature | admin.py | forms.py | models.py | urls.py | views.py |
+|---------|----------|----------|-----------|---------|----------|
+| Blogs | [no errors](/docs/images/badmin.png) | [no errors](/docs/images/bforms.png) | [no errors](/docs/images/bmodels.png) | [no errors](/docs/images/burls.png) | [no errors](/workspace/Blogggel/docs/images/bviews.png) |
+| Config main app | na | na | na | [no errors](/workspace/Blogggel/docs/images/curls.png) | na |
+
 
 
 ### Lighthouse Testing
