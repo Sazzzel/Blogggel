@@ -1612,6 +1612,196 @@ These are being used in post_detail.html I have been told it is best practice to
 
 [Back to Table of Contents](#table-of-contents)
 
+---
+
+### Outside Tester
+
+**Test Report for Blogggel Dev Blog**  
+**Commissioned by Sarah**  
+**Tester: Ben Darlington**  
+**Date: 10th of December 2024**
+
+---
+
+### **Objective**
+To test and review the following features of Blogggel Dev Blog:
+
+1. User Registration  
+2. Posting Testimonials  
+3. Editing Testimonials  
+4. Blog Post Rendering on Desktop, Tablet, and Phone  
+5. Adding Comments to Blog Posts  
+6. Editing Comments on Blog Posts  
+7. Penetration Testing against Injection Attacks  
+
+Additionally, to provide recommendations for future enhancements.
+
+---
+
+### **Test Results**
+
+#### **1. User Registration**
+**Test Steps:**  
+- Navigated to the registration page.  
+- Entered valid credentials (username, password, optional email).  
+- Submitted the registration form.
+
+**Expected Outcome:**  
+- User account created successfully.  
+- Confirmation or success message displayed.
+
+**Actual Outcome:**  
+- Registration worked flawlessly.  
+- Confirmation message appeared.  
+- User redirected to the dashboard.
+
+**Recommendation:**  
+None for now. Future updates could include mandatory email fields for bot prevention.
+
+---
+
+#### **2. Posting a Testimonial**
+**Test Steps:**  
+- Logged in as a registered user.  
+- Navigated to the testimonials page.  
+- Entered a testimonial text.  
+- Submitted the testimonial.
+
+**Expected Outcome:**  
+- Testimonial successfully posted.  
+- Visible on the testimonials section.
+
+**Actual Outcome:**  
+- Testimonial posted and displayed correctly.
+
+**Recommendation:**  
+None.
+
+---
+
+#### **3. Editing a Testimonial**
+**Test Steps:**  
+- Logged in as the testimonial author.  
+- Navigated to the testimonials section.  
+- Selected an existing testimonial to edit.  
+- Made changes and submitted the form.
+
+**Expected Outcome:**  
+- Changes saved successfully.  
+- Updated testimonial displayed.
+
+**Actual Outcome:**  
+- Editing functionality worked as expected.
+
+**Recommendation:**  
+None.
+
+---
+
+#### **4. Blog Post Rendering on Desktop, Tablet, and Phone**
+**Test Steps:**  
+- Accessed the Blogggel site on various devices (desktop, tablet, phone).  
+- Used multiple browsers including:
+  - Brave (Chromium-based)
+  - Chrome (Chromium-based)
+  - Chromium (Chromium engine)
+  - Edge (Chromium engine)
+  - Firefox (Gecko engine)
+  - Opera (Chromium-based)
+- Navigated to blog posts and verified layout consistency.
+
+**Expected Outcome:**  
+- Blog posts render well across all devices without layout issues. Browsers using the same engine (e.g., Chromium-based browsers like Brave, Chrome, Chromium, Edge, and Opera) should produce similar results.
+
+**Actual Outcome:**  
+- Content displayed consistently on all devices and browsers.  
+- Responsive design ensured proper layout and readability.  
+- Chromium-based browsers produced consistent results as expected. Firefox displayed comparable output with no layout discrepancies.
+
+**Recommendation:**  
+None.
+
+---
+
+#### **5. Adding Comments to a Blog Post**
+**Test Steps:**  
+- Logged in as a user.  
+- Navigated to a blog post.  
+- Entered a comment and submitted it.
+
+**Expected Outcome:**  
+- Comment added and displayed below the blog post.
+
+**Actual Outcome:**  
+- Commenting feature worked seamlessly.
+
+**Recommendation:**  
+None.
+
+---
+
+#### **6. Editing Comments on a Blog Post**
+**Test Steps:**  
+- Logged in as the comment author.  
+- Navigated to the comment section of a blog post.  
+- Selected an existing comment to edit.  
+- Made changes and submitted the form.
+
+**Expected Outcome:**  
+- Changes saved successfully.  
+- Updated comment displayed.
+
+**Actual Outcome:**  
+- Editing functionality worked without issues.
+
+**Recommendation:**  
+None.
+
+---
+
+#### **7. Penetration Testing Against Injection Attacks**
+**Test Steps:**  
+- Attempted to inject malicious code and tags into testimonials, blog posts, and comments.  
+- Input examples: `<script>alert('XSS')</script>`, `SELECT * FROM users;`.
+
+**Expected Outcome:**  
+- Input sanitized.  
+- Malicious code or tags not executed.
+
+**Actual Outcome:**  
+- The site successfully sanitized inputs.  
+- No vulnerabilities found during testing.
+
+**Recommendation:**  
+None.
+
+---
+
+### **Overall Findings**
+The Blogggel Dev Blog performed exceptionally well. All features tested met their expected functionality, and the application demonstrated robust security against basic injection attacks.
+
+---
+
+### **Recommendations**
+While the immediate testing scope does not mandate changes, the following advisory is provided for future enhancements:
+
+- **Mandatory Email During Registration:**  
+  To mitigate potential DDOS attacks via automated signups and submissions, implementing a required email field during registration is recommended. While current CI instructions for AllAuth do not cover this, it should be considered in future updates.
+
+---
+
+### **Conclusion**
+The Blogggel Dev Blog is a well-developed platform with strong functionality and security. The team is encouraged to prioritize the advisory in future iterations for further improvement.
+
+**Tester’s Signature:**  
+Ben Darlington  
+QA Specialist  
+[Your Contact Information]
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
 # Bugs
 
 ### Bugs in GitHub
