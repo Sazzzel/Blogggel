@@ -13,7 +13,7 @@
         <div class="d-none d-md-block masthead-image">
             {% if "placeholder" in post.featured_image.url %}
                 <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
-                    src="{% static 'images/default.png' %}" alt="placeholder image"> </a>
+                    src="{% static 'images/default.webp' %}" alt="placeholder image"> </a>
             {% else %}
                 <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
                     src=" {{ post.featured_image.url }}" alt="{{ post.title }}"> </a>
