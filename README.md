@@ -981,6 +981,8 @@ By following this structured approach, you'll be able to efficiently develop you
 
 - Users can create comments by adding text into the comment box at the bottom of the blog and clicking Submit.
 
+![Add Comment](docs/images/addcomment.png)
+
 ![Add Comment](docs/images/commentform.png)
  
 - Users can always see, edit and delete comments they have created.
@@ -1573,8 +1575,16 @@ By following this structured approach, you'll be able to efficiently develop you
 
 | Page | Screenshot | Errors | Warnings |
 | ---- | ---------- | ------ | -------- |
-| comments.js | ![comments.js](docs/images/testimonialsjs.png) | none | none |
+| comments.js | ![comments.js](docs/images/testimonialsjs.png) | none | 2 |
 | testimonial.js | ![testimonial.js](docs/images/commentsjs.png) | none | none |
+
+- I have 2 warnings in comments.js.
+```
+Two unused variables
+55	openAddComment
+63	closeAddComment
+```
+These are being used in post_detail.html I have been told it is best practice to keep the JavaScript in a .js file.
 
 [Back to Table of Contents](#table-of-contents)
 
