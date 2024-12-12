@@ -1,20 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 body {
-
+    background-color: #3e657c;
+    padding-top: 50px;
+    padding-bottom: 150px;
     font-family: 'Source Sans 3';
     font-weight: 400;
+    width: 100%;
+    background-image: url('../images/bg.png'); /* Replace with your image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    
+
 }
 .brand {
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
 }
-.hero-image {
-    width: 100%; 
-    height: 50%;
-}
+
+
 .nav-bg {
+    position: fixed;
+    top:0px;
+    z-index: 20;
+    width: 100%;
     background-color: #004f6e;
 }
 .brand-text{
@@ -47,11 +59,16 @@ body {
     font-size: 30px;
     margin-bottom: 6px;
 }
-footer p{
-    margin: 0;
+footer{
+    position: fixed;
+    bottom: -30px;
+    width: 100%;
+
 }
 .main-bg {
-    background-color: #3e657c;
+
+    top: 10%;
+
 }
 .logout{
     padding-top: 20px;
@@ -241,21 +258,80 @@ footer p{
 }
 .wizard {
     display: flex;
+    position: relative;
+    top: 0vh;
     justify-content: center;
     border-radius: 30px;
     background-color: #445261;
     box-shadow: 5px 5px 10px black;
-    margin: 50px;
+    margin: 15%;
     color: #c0c0c0;
     justify-self: center;
-    min-width: 600px;
-
+    min-width: 30%;
+    z-index: 10;
     flex-direction: column; 
-   
     align-items: center;    /* Vertically center */
     justify-items: center;
    
 }
+.wizardSignUp {
+    display: flex;
+    position: relative;
+    top: 0vh;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: #445261;
+    box-shadow: 5px 5px 10px black;
+    margin: 15%;
+    color: #c0c0c0;
+    justify-self: center;
+    min-width: 0%;
+    z-index: 10;
+    flex-direction: column; 
+    align-items: center;    /* Vertically center */
+    justify-items: center;
+   
+}
+.wizardComment {
+    display: none;
+    position: absolute;
+    bottom: -0vh;
+    left: 40%;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: #445261;
+    box-shadow: 5px 5px 10px black;
+    margin-left: auto;
+    margin-right:auto;
+    color: #c0c0c0;
+    justify-self: center;
+    min-width: 40%;
+    z-index: 10;
+    flex-direction: column; 
+    align-items: center;    /* Vertically center */
+    justify-items: center;
+   
+}
+.commentForm{
+    align-items: center;    /* Vertically center */
+    justify-items: center;
+    justify-content: center;
+}
+.submitButton{
+    position: relative;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.closeButton{
+    position: relative;
+    left:45%;
+    color: #000000;
+    font-weight: 900;
+    font-size: large;
+
+}
+
 .postholder {
     display: flex;
     justify-content: center;

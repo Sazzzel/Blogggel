@@ -7,21 +7,14 @@
 
 {% block content %}
 
-<div class="wizard">
+<div class="wizardSignUp">
     
         
           <h3>{% trans "Sign Up" %}</h3><hr>
-
-          <p>{% blocktrans %}Welcome back to Blogggel.</p> <hr>Do you already have an account?<br> <a class="link" href="{{ login_url }}">sign in</a>{% endblocktrans %}
-        
-      
-      
-        
-            
-          <hr><form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             <div id="step-0" class="form-step">
-                <h2>What shall we call you?</h2>
+                <h3>What shall I call you?</h3>
                 <label for="id_username">Username</label><br>
                 {{ form.username }}
                 {% if form.username.errors %}
@@ -35,7 +28,7 @@
             </div>
         
             <div id="step-1" class="form-step" style="display: none;">
-                <h2>Tell us about you. What is your email?</h2>
+                <h3>Tell me about you. What is your email?</h3>
                 <label for="id_email">Email (You don't need to give us this but it would be cool, as we could keep you updated and secure your account!)</label><br>
                 {{ form.email }}
                 {% if form.email.errors %}
@@ -50,7 +43,7 @@
             </div>
         
             <div id="step-2" class="form-step" style="display: none;">
-                <h2>Lets secure your account!</h2>
+                <h3>Lets secure your account!</h3>
                 <label for="id_password1">Password</label><br>
                 {{ form.password1 }}
                 {% if form.password1.errors %}

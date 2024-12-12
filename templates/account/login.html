@@ -7,14 +7,12 @@
 
 {% block content %}
 
+            
+               
+
 <div class="wizard">
-
+            <h2>Welcome back,</h2> 
             <h3>{% trans "Sign In" %}</h3>
-
-            <p>{% blocktrans %}Welcome back to the Blogggel.</p> <hr> If
-                you
-                have not created an account yet?<br> <a class="link" href="{{ signup_url }}">sign up</a>
-               {% endblocktrans %}
 
    
             <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -30,6 +28,6 @@
                 {% endif %}
                 <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
             </form>
-
+             Don't have an account yet?<br> <a class="link" href="{{ signup_url }}">sign up</a> <hr>
 </div>
 {% endblock %}

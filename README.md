@@ -49,6 +49,7 @@
   - [Sign-Out Feature](#sign-out-feature)
   - [Testimonials Feature](#testimonialsfeature)
   - [Comments Feature](#comments-feature)
+- [Future Features](#future-features)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Data Structure and Relationships](#data-structure-and-relationships)
 - [Testing](#testing)
@@ -188,6 +189,8 @@ Wireframes were created to guide the layout of each key page of the website:
 ## Visitor/User User Stories
 
 ![Visiter User Stories](docs/images/VisitorUserStoriesBanner.webp)
+
+All of my user stories can be seen [Here](https://github.com/users/Sazzzel/projects/5/views/1)
 
 ### User Story 1: User Registration
 
@@ -995,7 +998,458 @@ By following this structured approach, you'll be able to efficiently develop you
 
 [Back to Table of Contents](#table-of-contents)
 
+---
+
+## Future Features
+
+- I have alot of Admin / User Stories that I did not complete as they fell out of scope.
+- All of my user stories can be seen [Here](https://github.com/users/Sazzzel/projects/5/views/1)
+
+- I planned this project with advance features that I knew I could not impliment before the end of this project. 
+- I choose to do this because I plan on contiuning work on this site after I have my grade.
+
+### Future Feature User Stories
+
+### User Story 3: Search Blogs by Programming Language
+
+**User Story:**
+
+> **As a** user,  
+> **I can** search for blog posts containing specific programming languages or keywords,  
+> **so that** I can easily find content relevant to my interests.
+
+**Acceptance Criteria:**
+
+- Users can enter programming languages or keywords into a search bar.
+- Search results display blog posts that match the query.
+- Users can filter results by date, popularity, or category.
+- The system handles misspellings and suggests corrections.
+
+**Tasks Involved:**
+
+1. **Design Search Interface**  
+   Add a prominently placed search bar accessible from all pages. Include advanced search options for filters.
+
+2. **Implement Search Functionality**  
+   Use Django's ORM to query the database for matching posts. Implement full-text search capabilities. Handle case-insensitive searches and partial matches.
+
+3. **Display Search Results**  
+   Create a results page that lists matching blog posts with snippets. Implement pagination for long lists of results.
+
+4. **Optimize Search Performance**  
+   Index relevant database fields to speed up queries. Implement caching strategies for frequent searches.
+
+5. **Error Handling**  
+   Provide user feedback when no results are found. Suggest similar search terms or popular posts.
+
+---
+
+### User Story 6: Edit Personal Profile
+
+**User Story:**
+
+> **As a** logged-in user,  
+> **I can** edit my profile information,  
+> **so that** I can personalize my account.
+
+**Acceptance Criteria:**
+
+- Users can update their display name, bio, and profile picture.
+- Changes are saved and immediately reflected on their profile page.
+- Users can change their password securely.
+- The system validates inputs and provides feedback.
+
+**Tasks Involved:**
+
+1. **Design Profile Page**  
+   Create a user profile page displaying personal information. Include an "Edit Profile" button.
+
+2. **Implement Profile Editing Functionality**  
+   Develop forms for updating profile details. Handle file uploads for profile pictures.
+
+3. **Implement Password Change Feature**  
+   Provide a secure way for users to change their passwords. Require current password for verification.
+
+4. **Validation and Error Handling**  
+   Validate inputs (e.g., acceptable image formats, bio length). Display error messages for invalid data.
+
+5. **Security Measures**  
+   Ensure proper authentication before allowing profile edits. Protect against unauthorized access.
+
+---
+
+### User Story 7: Like Blog Posts
+
+**User Story:**
+
+> **As a** user,  
+> **I can** like blog posts,  
+> **so that** I can show appreciation for content I find valuable.
+
+**Acceptance Criteria:**
+
+- Users can click a "Like" button on any blog post.
+- The total number of likes is displayed and updates in real-time.
+- Users cannot like the same post more than once.
+- Users can unlike a post they previously liked.
+
+**Tasks Involved:**
+
+1. **Design Like Button**  
+   Add a "Like" button to blog posts with a like count. Change the button state when liked or unliked.
+
+2. **Implement Like Functionality**  
+   Create a model to track likes associated with users and posts. Update the like count without reloading the page (AJAX).
+
+3. **Prevent Multiple Likes**  
+   Check if the user has already liked the post before allowing a new like. Provide an option to unlike.
+
+4. **Optimize Performance**  
+   Cache like counts for efficient retrieval. Handle concurrent likes appropriately.
+
+---
+
+### User Story 8: Bookmark Blog Posts
+
+**User Story:**
+
+> **As a** logged-in user,  
+> **I can** bookmark blog posts,  
+> **so that** I can save them for easy access later.
+
+**Acceptance Criteria:**
+
+- Users can add or remove blog posts from their bookmarks.
+- Users can view a list of their bookmarked posts.
+- Bookmarked posts are accessible from the user's profile.
+
+**Tasks Involved:**
+
+1. **Design Bookmark Feature**  
+   Add a "Bookmark" button on blog posts. Create a bookmarks section in the user's profile.
+
+2. **Implement Bookmark Functionality**  
+   Create a model to store bookmarks linked to users and posts. Handle adding and removing bookmarks.
+
+3. **Display Bookmarked Posts**  
+   Show a list of bookmarks with links to the full posts. Allow sorting or categorizing bookmarks.
+
+4. **Optimize User Experience**  
+   Update bookmark status without page reload. Provide visual feedback when a post is bookmarked.
+
+---
+
+### User Story 9: Receive Notifications
+
+**User Story:**
+
+> **As a** logged-in user,  
+> **I can** receive notifications for interactions like replies to my comments,  
+> **so that** I stay informed about engagements.
+
+**Acceptance Criteria:**
+
+- Users receive in-app notifications for replies, mentions, and likes.
+- Notifications are displayed in a notification center.
+- Users can adjust their notification preferences.
+
+**Tasks Involved:**
+
+1. **Design Notification Center**  
+   Add a notification icon accessible from all pages. Display a dropdown or page listing notifications.
+
+2. **Implement Notification System**  
+   Create models for notifications linked to users. Trigger notifications on relevant events (e.g., comment replies).
+
+3. **Manage Notification Preferences**  
+   Allow users to enable or disable specific types of notifications. Update user settings accordingly.
+
+4. **Real-Time Updates**  
+   Use WebSockets or long polling to deliver notifications in real-time.
+
+5. **Marking Notifications as Read**  
+   Provide functionality for users to mark notifications as read. Visually distinguish between read and unread notifications.
+---
+
+### Admin User Story 1: Create Blog Posts
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** create new blog posts,  
+> **so that** I can publish fresh content on the website.
+
+**Acceptance Criteria:**
+
+- Admins can access a form to create new blog posts.
+- The form allows input of title, content, tags, categories, and images.
+- Posts can be saved as drafts or published immediately.
+- The system validates inputs and provides error messages for invalid data.
+
+**Tasks Involved:**
+
+1. **Design Create Post Form**  
+   Develop a rich text editor for content creation. Include fields for title, tags, categories, and image uploads.
+
+2. **Implement Backend Logic**  
+   Set up models for blog posts with appropriate fields. Handle file uploads securely and efficiently.
+
+3. **Draft and Publish Options**  
+   Allow saving posts as drafts. Provide options to schedule future publication dates.
+
+4. **Validation and Error Handling**  
+   Ensure required fields are filled. Validate content length and image formats.
+
+5. **Security Measures**  
+   Restrict access to admin users. Implement CSRF protection.
+   
+   ---
+   
+   ### Admin User Story 3: Update Blog Posts
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** edit existing blog posts,  
+> **so that** I can update or correct content as needed.
+
+**Acceptance Criteria:**(## User Stories - Table of Contents)
+
+- Admins can access an edit form for any blog post.
+- Changes are saved and reflected on the website immediately or scheduled as per admin's choice.
+- The system tracks changes for auditing purposes.
+- Validation ensures that all required fields are properly updated.
+
+**Tasks Involved:**
+
+1. **Design Edit Post Form**  
+   Use the same form as the create post form, pre-filled with existing data. Include options to change the publication status.
+
+2. **Implement Update Functionality**  
+   Allow updates to the blog post in the database. Handle file replacements for images if necessary.
+
+3. **Version Control (Optional)**  
+   Implement a version history to track changes over time.
+
+4. **Validation and Error Handling**  
+   Validate inputs before saving changes. Provide error messages for invalid data.
+
+5. **Security Measures**  
+   Restrict edit permissions to admins. Protect against concurrent edit conflicts.
+
+---
+
+### Admin User Story 4: Delete Blog Posts
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** delete blog posts,  
+> **so that** I can remove outdated or inappropriate content from the website.
+
+**Acceptance Criteria:**
+
+- Admins can delete any blog post from the admin interface.
+- The system prompts for confirmation before deletion.
+- Deleted posts are removed from the website immediately.
+- Optionally, posts are soft-deleted (archived) rather than permanently removed.
+
+**Tasks Involved:**
+
+1. **Implement Delete Functionality**  
+   Add delete actions in the admin posts list. Implement soft-delete by marking posts as inactive, if desired.
+
+2. **Confirmation Prompts**  
+   Require admins to confirm deletion to prevent accidental loss.
+
+3. **Handle Dependencies**  
+   Decide how to handle comments and likes associated with deleted posts.
+
+4. **Audit Logging**  
+   Record deletion actions with timestamps and admin details.
+
+5. **Security Measures**  
+   Ensure only authorized admins can delete posts. Protect against mass deletion exploits.
+
+---
+
+### Admin User Story 6: Manage Users
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** view and manage user accounts,  
+> **so that** I can handle issues related to user behavior.
+
+**Acceptance Criteria:**
+
+- Admins can search for and view user profiles.
+- Admins can deactivate or ban users violating policies.
+- Admins can reset user passwords if necessary.
+- The system maintains records of actions taken on user accounts.
+
+**Tasks Involved:**
+
+1. **Design User Management Interface**  
+   Create an admin page listing users with search and filter options.
+
+2. **Implement Account Controls**  
+   Provide options to deactivate, ban, or reactivate user accounts. Allow password resets with secure procedures.
+
+3. **User Activity Monitoring**  
+   Display recent activities of users (e.g., comments, posts liked).
+
+4. **Audit Logging**  
+   Record all admin actions taken on user accounts.
+
+5. **Security Measures**  
+   Ensure only authorized admins have access to user management. Protect sensitive user data.
+
+---
+
+### Admin User Story 7: Review Reported Content
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** review content that users have reported,  
+> **so that** I can address any violations promptly.
+
+**Acceptance Criteria:**
+
+- Admins receive notifications of reported content.
+- Reported content is listed in a dedicated review queue.
+- Admins can take actions such as editing, deleting, or ignoring reports.
+- Users are informed about the resolution of their reports.
+
+**Tasks Involved:**
+
+1. **Implement Reporting Mechanism**  
+   Enable users to report posts and comments. Collect reports with details and optional user comments.
+
+2. **Design Review Queue Interface**  
+   Create an admin page listing reported content with relevant information.
+
+3. **Implement Action Options**  
+   Provide actions like "Delete Content," "Warn User," or "Mark as Safe."
+
+4. **Notification System**  
+   Notify reporting users about the outcome. Optionally, notify content creators if their content is moderated.
+
+5. **Audit Logging**  
+   Record actions taken on reported content.
+
+6. **Security Measures**  
+   Ensure confidentiality of reports. Protect against false reporting.
+
+---
+
+### Admin User Story 8: Manage Tags and Categories
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** add, edit, or delete tags and categories,  
+> **so that** I can organize blog content effectively.
+
+**Acceptance Criteria:**
+
+- Admins can create new tags and categories.
+- Admins can rename or delete existing tags and categories.
+- Changes are reflected across all associated blog posts.
+- The system prevents deletion of tags or categories in use without confirmation.
+
+**Tasks Involved:**
+
+1. **Design Tag and Category Management Interface**  
+   Create admin pages for managing tags and categories.
+
+2. **Implement CRUD Operations**  
+   Allow creation, editing, and deletion of tags and categories.
+
+3. **Handle Dependencies**  
+   Update or remove associations with blog posts when tags/categories are modified.
+
+4. **Validation and Error Handling**  
+   Prevent duplicate tags or categories. Confirm before deleting tags/categories in use.
+
+5. **Security Measures**  
+   Restrict access to authorized admins. Protect against injection attacks.
+
+---
+
+### Admin User Story 9: View Site Analytics
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** access analytics on site performance,  
+> **so that** I can make informed decisions to improve the website.
+
+**Acceptance Criteria:**
+
+- Admins can view metrics like page views, user sign-ups, and popular posts.
+- Data can be filtered by date range and content type.
+- Analytics are presented in an understandable format (e.g., charts, graphs).
+
+**Tasks Involved:**
+
+1. **Integrate Analytics Tools**  
+   Use services like Google Analytics or build custom analytics.
+
+2. **Design Analytics Dashboard**  
+   Create visual representations of key metrics.
+
+3. **Implement Data Collection**  
+   Track necessary data points without violating user privacy.
+
+4. **Optimize Performance**  
+   Ensure analytics gathering does not slow down the website.
+
+5. **Security and Compliance**  
+   Comply with data protection regulations. Provide options for users to opt-out of tracking.
+
+---
+
+### Admin User Story 10: Configure Site Settings
+
+**User Story:**
+
+> **As an** admin,  
+> **I can** update website settings and appearance,  
+> **so that** I can keep the site up-to-date and visually appealing.
+
+**Acceptance Criteria:**
+
+- Admins can change themes, layouts, and color schemes.
+- Updates to settings are applied site-wide immediately.
+- The system prevents invalid configurations.
+
+**Tasks Involved:**
+
+1. **Design Settings Interface**  
+   Create a user-friendly interface for site configuration.
+
+2. **Implement Theme and Layout Options**  
+   Develop or integrate multiple themes. Allow customization of colors, fonts, and layouts.
+
+3. **Apply Changes Site-Wide**  
+   Ensure updates are reflected across all pages.
+
+4. **Validation and Error Handling**  
+   Prevent configurations that could break the site.
+
+5. **Security Measures**  
+   Restrict access to site settings to authorized admins. Backup current settings before applying changes.
+
+
+[Back to Table of Contents](#table-of-contents)
+
+---
+
 ## Entity Relationship Diagram
+
+![ERD](erd.png)
 
 ### Data Structure and Relationships
 - The database is designed using PostgreSQL, with tables for Users, Blog Posts, Comments, Likes, Bookmarks, and Notifications. The Entity Relationship Diagram (ERD) shows the connections between these tables to ensure data integrity and support the features of the site.
@@ -1018,9 +1472,7 @@ By following this structured approach, you'll be able to efficiently develop you
 | Create Testimonial | 0 | 0 |
 | Edit Testimonial | 0 | 0 |
 | Delete Testimonial| 0 | 0 |
-| Error 403 | 0 | 0 |
-| Error 404 | 0 | 0 |
-| Error 500 | 0  | 0 |
+
 
 ## Manual Testing
 - Tested across various browsers, including **Chrome**, **Firefox**, **Edge**.

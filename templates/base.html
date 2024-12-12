@@ -71,8 +71,8 @@
             </div>
         </div>
     </nav>
-    <img loading="lazy" src="{% static 'images/HeroImageTop.webp' %}"  class="img-fluid fade-in hero-img" alt="Computer screen surounded by circet boards">
-    
+
+
 
      <!-- displaying Django messages -->
      <div class="container">
@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    <main class="flex-shrink-0 main-bg">
+    <main class="main-bg">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
@@ -96,11 +96,10 @@
     </main>
 
 
-
-    <img loading="lazy" src="{% static 'images/HeroImageBottom.webp' %}" class="img-fluid hero-img" alt="Circet board with components">
+   
        <!-- Footer -->
        <footer class="footer mt-auto py-3 dark-bg">
-        
+    
        
         <!-- Social -->
         <p class="d-flex justify-content-around foot-text align-items-center">
