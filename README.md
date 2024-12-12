@@ -1606,6 +1606,10 @@ These are being used in post_detail.html I have been told it is best practice to
 ### Lighthouse Testing
 - **Google Lighthouse** was used to audit performance, accessibility, and SEO.
 
+![Desktop Lighthouse](/docs/images/desktoplh.png)
+
+![Mobile Lighthouse](/docs/images/mobilelh.png)
+
 [Back to Table of Contents](#table-of-contents)
 
 # Bugs
