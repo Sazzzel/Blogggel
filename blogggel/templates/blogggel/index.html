@@ -17,10 +17,10 @@
                         <div class="card-body">
                             <div class="image-container">
                             {% if "placeholder" in post.featured_image.url %}
-                                <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
+                                <a href="{% url 'post_detail' post.slug %}"><img loading="lazy" class="card-img-top" 
                                     src="{% static 'images/default.png' %}" alt="placeholder image"> </a>
                             {% else %}
-                                <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" 
+                                <a href="{% url 'post_detail' post.slug %}"><img loading="lazy" class="card-img-top" 
                                     src=" {{ post.featured_image.url }}" alt="{{ post.title }}"> </a>
                                 {% endif %}
                                 <hr>
