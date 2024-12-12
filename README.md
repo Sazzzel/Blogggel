@@ -1856,7 +1856,6 @@ python3 manage.py migrate
 
 [Back to Table of Contents](#table-of-contents)
 
----
 
 # Deployment
 
@@ -2384,6 +2383,16 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ## Credits
+
+- Some code I used was copied and edited from the code|star blog walkthrough provided by code Institute.
+
+- I would like to thank my facilitator Amy for everything she has done for me including beleveing.
+
+- I would like to thank my husband for being supportive throughout my course, for putting up with me and for being there for me when I thought all hope was lost. 
+
+- I would like to thank the coding coach team for all the help and encouragement they have provided me.
+
+I would like to thank Mark our SME tutor for answering all my questions and for being great at what he does.
 
 ### Project Inspiration and Sources
 - This project was inspired by my journey as a developer and my desire to create a comprehensive platform to showcase my work and certifications.
