@@ -4,7 +4,6 @@ const testimonialText = document.getElementById("id_text");
 const testimonialJob = document.getElementById("id_job_title");
 const testimonialForm = document.getElementById("testimonialForm");
 const submitButton = document.getElementById("submitButton");
-
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const addModal = new bootstrap.Modal(document.getElementById("addTestimonialModal"));
 const deleteButtons = document.getElementsByClassName("btn-testimonial-delete");
@@ -30,16 +29,25 @@ for (let button of deleteButtons) {
     });
   }
   
+/**
+* Initializes edit functionality for the provided edit buttons.
+*/
+for (let button of editButtons) {
+  button.addEventListener("click", (e) => {
+    // Get the ID
+    const testimonialId = e.target.getAttribute("data-testimonial-id");
+    // Get the text
+    const content = document.getElementById(`testimonial-text${testimonialId}`).innerText;
+    // get the role
+    const job = document.getElementById(`testimonial-job${testimonialId}`).innerText;
+    // update the add form with the data
+    testimonialText.value = content;
+    testimonialJob.value = job;
+    // Change its functionality Edit
+    submitButton.innerText = "Update";
+    testimonialForm.setAttribute("action", `edit_testimonial/${testimonialId}/`);
 
-  for (let button of editButtons) {
-    button.addEventListener("click", (e) => {
-      const testimonialId = e.target.getAttribute("data-testimonial-id");
-      const content = document.getElementById(`testimonial-text${testimonialId}`).innerText;
-      const job = document.getElementById(`testimonial-job${testimonialId}`).innerText;
-      testimonialText.value = content;
-      testimonialJob.value = job;
-      submitButton.innerText = "Update";
-      testimonialForm.setAttribute("action", `edit_testimonial/${testimonialId}/`);
-      addModal.show();
-    });
-  }
+    // Show the modal that contains the form.
+    addModal.show();
+  });
+}
