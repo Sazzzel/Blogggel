@@ -51,18 +51,3 @@ for (let button of deleteButtons) {
   });
 }
 
-// Open the Add Comment Modal
-function openAddComment()
-{
-  // Get the Add Comment Modal
-  const addCommentModal = document.getElementById("addComment");
-  addCommentModal.style.display = "flex";
-
-}
-// Close the Add Comment Modal
-function closeAddComment()
-{
-  // Get the Add Comment Modal
-  const addCommentModal = document.getElementById("addComment");
-  addCommentModal.style.display = "none";
-}

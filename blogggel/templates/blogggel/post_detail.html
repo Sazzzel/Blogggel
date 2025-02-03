@@ -43,6 +43,31 @@
             <hr>
             <h3>Comments ({{ comment_count }}):</h3>
             <div>
+
+                {% if user.is_authenticated %}
+                <div>
+           
+                    {% if user.is_authenticated %}
+                        <h3>Leave a Comment</h3> 
+                        <p>Posting as: {{ user.username }}</p>
+                        <form id="commentForm" method="post">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" id="submitButton" class="btn btn-primary submitButton">Submit</button>
+                        </form>
+                        
+                    {% else %}
+                        <p>Please <a href="{% url 'account_login' %}">log in</a> to leave a comment.</p>
+                    {% endif %}
+        </div>
+                {% else %}
+                    <a href="{% url 'account_login' %}"> <button value="Add Comment" onclick="openAddComment()">Log In to leave a comment.</button></a> 
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <br>
+
                 <!-- Loop through comments -->
                 {% for comment in comments %}
                     {% if comment.approved or  comment.author == user %}
@@ -75,37 +100,14 @@
                     </div>
                     {% endif %}
                 {% empty %}
-                    <p>No comments yet. Be the first to comment!</p>
+                    <h4>No comments yet. Be the first to comment!</h4>
                 {% endfor %} 
             </div>   
         </div>
-                {% if user.is_authenticated %}
-                    <button value="Add Comment" onclick="openAddComment()">Add Comment</button>
-                {% else %}
-                    <a href="{% url 'account_login' %}"> <button value="Add Comment" onclick="openAddComment()">Log In to leave a comment.</button></a> 
-                {% endif %}
-            </div>
-        </div>
+               
 
         
-        <div>
-            <div class="card sticky-top">
-                <div id="addComment" class="wizardComment">
-                    {% if user.is_authenticated %}
-                        <h3>Leave a Comment</h3> <a onclick="closeAddComment()" class="closeButton">X</a>
-                        <p>Posting as: {{ user.username }}</p>
-                        <form id="commentForm" method="post">
-                            {{ comment_form | crispy }}
-                            {% csrf_token %}
-                            <button type="submit" id="submitButton" class="btn btn-primary submitButton">Submit</button>
-                        </form>
-                        
-                    {% else %}
-                        <p>Please <a href="{% url 'account_login' %}">log in</a> to leave a comment.</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+
     
 
 <!-- Delete confirmation modal -->
