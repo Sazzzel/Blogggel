@@ -426,6 +426,11 @@ footer{
        
     }
 
+    .delete-modal {
+        background-color: #445261;
+        color: #c0c0c0;
+        border: 2px solid #c0c0c0;
+    }
 
 }
 
@@ -467,6 +472,12 @@ footer{
         align-items: center;    /* Vertically center */
         justify-items: center;
     
+    }
+
+    .delete-modal {
+        background-color: #445261;
+        color: #c0c0c0;
+        border: 2px solid #c0c0c0;
     }
 
 }
