@@ -1,4 +1,6 @@
 /* jshint esversion: 6 */
+/* global bootstrap */
+
 const editButtons = document.getElementsByClassName("btn-comment-edit");
 const commentText = document.getElementById("id_body");
 const commentForm = document.getElementById("commentForm");
@@ -6,8 +8,6 @@ const submitButton = document.getElementById("submitButton");
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-comment-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
-// Get the Add Comment Modal
-const addCommentModal = document.getElementById("addComment");
 
 /**
 * Initializes edit functionality for the provided edit buttons.
@@ -27,7 +27,9 @@ for (let button of editButtons) {
       submitButton.innerText = "Update";
       commentForm.setAttribute("action", `edit_comment/${commentId}`);
       commentForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      openAddComment();
+        // Get the Add Comment Modal
+      const addCommentModal = document.getElementById("addComment");
+      addCommentModal.style.display = "flex";
   });
 }
 
@@ -49,14 +51,3 @@ for (let button of deleteButtons) {
   });
 }
 
-// Open the Add Comment Modal
-function openAddComment()
-{
-  addCommentModal.style.display = "flex";
-
-}
-// Close the Add Comment Modal
-function closeAddComment()
-{
-  addCommentModal.style.display = "none";
-}
