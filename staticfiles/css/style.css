@@ -428,7 +428,7 @@ footer{
 
     .delete-modal {
         background-color: #445261;
-        min-width: none;
+        min-width: 0;
         color: #c0c0c0;
         border: 2px solid #c0c0c0;
     }
@@ -477,7 +477,7 @@ footer{
 
     .delete-modal {
         background-color: #445261;
-        min-width: none;
+        min-width: 0;
         color: #c0c0c0;
         border: 2px solid #c0c0c0;
     }
