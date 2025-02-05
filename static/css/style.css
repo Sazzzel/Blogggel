@@ -342,7 +342,7 @@ footer{
    
 }
 .comment {
-    min-width: 500px;
+    min-width: 320px;
     display: flex;
     justify-content: center;
     border-radius: 20px;
@@ -424,6 +424,22 @@ footer{
         align-items: center;    /* Vertically center */
        
     }
+
+    .comment {
+        min-width: 500px;
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        background-color: #445261;
+        box-shadow: 5px 5px 10px black;
+        margin: 50px;
+        color: #c0c0c0;
+        justify-self: center;
+        flex-direction: column; 
+        align-items: center;    /* Vertically center */
+        justify-items: center;
+    
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -444,6 +460,22 @@ footer{
         justify-self: center;
         min-width: 40%;
         z-index: 10;
+        flex-direction: column; 
+        align-items: center;    /* Vertically center */
+        justify-items: center;
+    
+    }
+
+    .comment {
+        min-width: 500px;
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        background-color: #445261;
+        box-shadow: 5px 5px 10px black;
+        margin: 50px;
+        color: #c0c0c0;
+        justify-self: center;
         flex-direction: column; 
         align-items: center;    /* Vertically center */
         justify-items: center;
